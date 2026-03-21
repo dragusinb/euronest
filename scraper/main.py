@@ -23,6 +23,14 @@ from output import write_all_listings, read_existing_listings, OUTPUT_DIR
 from sources.spitogatos import SpitogatosScraper
 from sources.greenacres import GreenAcresScraper
 from sources.etuovi import EtuoviScraper
+from sources.idealista import IdealistaScraper
+from sources.immoscout import ImmoScoutScraper
+from sources.funda import FundaScraper
+from sources.immoweb import ImmowebScraper
+from sources.otodom import OtodomScraper
+from sources.sreality import SrealityScraper
+from sources.daft import DaftScraper
+from sources.generic import GenericScraper
 
 # Setup logging
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
@@ -40,6 +48,14 @@ SCRAPERS = {
     "spitogatos": SpitogatosScraper(),
     "greenacres": GreenAcresScraper(),
     "etuovi": EtuoviScraper(),
+    "idealista": IdealistaScraper(),
+    "immoscout": ImmoScoutScraper(),
+    "funda": FundaScraper(),
+    "immoweb": ImmowebScraper(),
+    "otodom": OtodomScraper(),
+    "sreality": SrealityScraper(),
+    "daft": DaftScraper(),
+    "generic": GenericScraper(),
 }
 
 
