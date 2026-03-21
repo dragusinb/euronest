@@ -16,10 +16,10 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
 });
 
-// Bounds covering all of Europe: SW corner (Portugal/Cyprus) to NE corner (Norway/Finland)
+// Bounds framing all cities: from Cyprus (34°N) to Helsinki (60°N), Lisbon (9°W) to Tallinn (25°E)
 const EUROPE_BOUNDS: L.LatLngBoundsExpression = [
-  [34.0, -12.0],  // SW: southern Cyprus / western Portugal
-  [71.0, 35.0],   // NE: northern Norway / eastern Finland
+  [33.5, -11.0],  // SW: southern Cyprus / western Ireland
+  [62.0, 30.0],   // NE: just above Helsinki/Tallinn
 ];
 
 function createYieldIcon(city: City) {
