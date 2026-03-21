@@ -42,8 +42,8 @@ interface MapViewProps {
 
 export default function MapView({ selectedCountry, onSelectCity }: MapViewProps) {
   const navigate = useNavigate();
-  const [mapCenter, setMapCenter] = useState<[number, number]>([50, 15]);
-  const [mapZoom, setMapZoom] = useState(4);
+  const [mapCenter, setMapCenter] = useState<[number, number]>([50, 14]);
+  const [mapZoom, setMapZoom] = useState(3.5);
 
   useEffect(() => {
     if (selectedCountry) {
@@ -53,8 +53,8 @@ export default function MapView({ selectedCountry, onSelectCity }: MapViewProps)
         setMapZoom(country.zoom);
       }
     } else {
-      setMapCenter([50, 15]);
-      setMapZoom(4);
+      setMapCenter([50, 14]);
+      setMapZoom(3.5);
     }
   }, [selectedCountry]);
 
