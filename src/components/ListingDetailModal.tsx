@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Heart, X } from 'lucide-react';
+import { Heart, X, ExternalLink } from 'lucide-react';
 import { usePortfolioStore } from '../store';
 import { getCity } from '../data/cities';
 import { getCountry } from '../data/countries';
@@ -174,12 +174,25 @@ export default function ListingDetailModal({ listing, onClose }: ListingDetailMo
                 </div>
               </div>
 
+              {/* Source link */}
+              {listing.sourceUrl && (
+                <a
+                  href={listing.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 mt-4 px-4 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-medium no-underline hover:bg-blue-700 transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  View original listing{listing.source ? ` on ${listing.source}` : ''}
+                </a>
+              )}
+
               {/* Footer info */}
-              <div className="text-xs text-gray-400 pt-4 border-t border-gray-100">
+              <div className="text-xs text-gray-400 pt-4 border-t border-gray-100 mt-4">
                 Price per m&sup2;: {formatPrice(listing.price / listing.areaSqm)} &middot; Built:{' '}
                 {listing.yearBuilt}
-                <br />
-                Sample listing for illustration purposes. Contact local agents for real listings.
+                {listing.lastUpdated && <> &middot; Updated: {listing.lastUpdated}</>}
+                {listing.neighborhood && <> &middot; {listing.neighborhood}</>}
               </div>
             </div>
           )}

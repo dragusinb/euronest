@@ -1,6 +1,6 @@
 import type { PropertyListing } from '../types';
 import { formatPrice, formatYield, formatArea, yieldColor } from '../utils/formatters';
-import { Bed, Bath, Building2, Calendar, TrendingUp } from 'lucide-react';
+import { Bed, Bath, Building2, Calendar, TrendingUp, ExternalLink } from 'lucide-react';
 
 interface ListingCardProps {
   listing: PropertyListing;
@@ -84,6 +84,19 @@ export default function ListingCard({ listing, onClick }: ListingCardProps) {
               </span>
             )}
           </div>
+        )}
+
+        {listing.sourceUrl && (
+          <a
+            href={listing.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center gap-1 mt-3 pt-3 border-t border-gray-100 text-xs text-blue-600 hover:text-blue-800 no-underline font-medium"
+          >
+            <ExternalLink className="w-3 h-3" />
+            View original listing{listing.source ? ` on ${listing.source}` : ''}
+          </a>
         )}
       </div>
     </div>

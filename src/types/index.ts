@@ -50,6 +50,11 @@ export interface PropertyListing {
   estimatedMonthlyRent: number;
   grossYield: number;
   features: string[];
+  source?: string;
+  sourceUrl?: string;
+  lastUpdated?: string;
+  address?: string;
+  neighborhood?: string;
 }
 
 export interface ListingFilters {
