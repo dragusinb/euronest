@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { cities, getCitiesByCountry } from '../data/cities';
@@ -16,6 +16,12 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
 });
 
+// Bounds covering all of Europe: SW corner (Portugal/Cyprus) to NE corner (Norway/Finland)
+const EUROPE_BOUNDS: L.LatLngBoundsExpression = [
+  [34.0, -12.0],  // SW: southern Cyprus / western Portugal
+  [71.0, 35.0],   // NE: northern Norway / eastern Finland
+];
+
 function createYieldIcon(city: City) {
   const cls = yieldClass(city.grossYield);
   return L.divIcon({
@@ -26,11 +32,20 @@ function createYieldIcon(city: City) {
   });
 }
 
-function MapUpdater({ center, zoom }: { center: [number, number]; zoom: number }) {
+function MapController({ selectedCountry }: { selectedCountry: string | null }) {
   const map = useMap();
+
   useEffect(() => {
-    map.flyTo(center, zoom, { duration: 1.2 });
-  }, [center, zoom, map]);
+    if (selectedCountry) {
+      const country = countries.find(c => c.id === selectedCountry);
+      if (country) {
+        map.flyTo(country.center, country.zoom, { duration: 1.2 });
+      }
+    } else {
+      map.flyToBounds(EUROPE_BOUNDS, { duration: 1.2, padding: [20, 20] });
+    }
+  }, [selectedCountry, map]);
+
   return null;
 }
 
@@ -42,21 +57,6 @@ interface MapViewProps {
 
 export default function MapView({ selectedCountry, onSelectCity }: MapViewProps) {
   const navigate = useNavigate();
-  const [mapCenter, setMapCenter] = useState<[number, number]>([50, 14]);
-  const [mapZoom, setMapZoom] = useState(3.5);
-
-  useEffect(() => {
-    if (selectedCountry) {
-      const country = countries.find(c => c.id === selectedCountry);
-      if (country) {
-        setMapCenter(country.center);
-        setMapZoom(country.zoom);
-      }
-    } else {
-      setMapCenter([50, 14]);
-      setMapZoom(3.5);
-    }
-  }, [selectedCountry]);
 
   const visibleCities = selectedCountry
     ? getCitiesByCountry(selectedCountry)
@@ -64,8 +64,8 @@ export default function MapView({ selectedCountry, onSelectCity }: MapViewProps)
 
   return (
     <MapContainer
-      center={mapCenter}
-      zoom={mapZoom}
+      bounds={EUROPE_BOUNDS}
+      boundsOptions={{ padding: [20, 20] }}
       className="h-full w-full rounded-lg"
       scrollWheelZoom={true}
       style={{ height: '100%', minHeight: '500px' }}
@@ -74,7 +74,7 @@ export default function MapView({ selectedCountry, onSelectCity }: MapViewProps)
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <MapUpdater center={mapCenter} zoom={mapZoom} />
+      <MapController selectedCountry={selectedCountry} />
 
       {visibleCities.map(city => (
         <Marker
@@ -96,7 +96,7 @@ export default function MapView({ selectedCountry, onSelectCity }: MapViewProps)
               <p className="text-sm text-gray-600 mb-3 m-0">{city.description}</p>
               <div className="grid grid-cols-2 gap-2 mb-3">
                 <div className="bg-gray-50 rounded-lg p-2 text-center">
-                  <div className="text-xs text-gray-500">Avg. Price/m\u00B2</div>
+                  <div className="text-xs text-gray-500">Avg. Price/m²</div>
                   <div className="text-sm font-bold text-gray-900">{formatPrice(city.averagePricePerSqm)}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2 text-center">
