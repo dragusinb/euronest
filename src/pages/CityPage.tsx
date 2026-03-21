@@ -1,21 +1,26 @@
 import { useParams, Link } from 'react-router-dom';
 import { getCity } from '../data/cities';
 import { getCountry } from '../data/countries';
-import { getListings } from '../data/listings';
 import { formatPrice, formatYield, yieldColor, demandColor } from '../utils/formatters';
 import ListingCard from '../components/ListingCard';
 import ListingDetailModal from '../components/ListingDetailModal';
 import BuyingGuide from '../components/BuyingGuide';
 import NeighborhoodScores from '../components/NeighborhoodScores';
 import { TrendingUp, Users, Sun, MapPin, Building2, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { PropertyListing, PropertyType } from '../types';
+import { fetchCityListings } from '../services/listingsApi';
+import DataFreshness from '../components/DataFreshness';
 
 export default function CityPage() {
   const { cityId } = useParams<{ cityId: string }>();
   const city = getCity(cityId || '');
   const country = city ? getCountry(city.countryId) : null;
-  const cityListings = getListings({ cityId: cityId || '' });
+
+  const [cityListings, setCityListings] = useState<PropertyListing[]>([]);
+  useEffect(() => {
+    fetchCityListings(cityId || '').then(setCityListings);
+  }, [cityId]);
 
   const [sortBy, setSortBy] = useState<'yield-desc' | 'price-asc' | 'price-desc' | 'area-desc'>('yield-desc');
   const [typeFilter, setTypeFilter] = useState<PropertyType | ''>('');
@@ -62,7 +67,10 @@ export default function CityPage() {
 
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">{city.name}</h1>
+              <div className="flex items-center gap-3">
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">{city.name}</h1>
+                <DataFreshness />
+              </div>
               <p className="text-gray-600 max-w-2xl">{city.description}</p>
             </div>
             <div className="flex gap-2">

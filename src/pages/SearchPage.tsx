@@ -1,11 +1,12 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SlidersHorizontal, X, LayoutGrid, Map } from 'lucide-react';
-import type { ListingFilters } from '../types';
+import type { ListingFilters, PropertyListing } from '../types';
 import SmartSearchBar from '../components/SmartSearchBar';
 import FilterPanel from '../components/FilterPanel';
 import ListingCard from '../components/ListingCard';
 import { getListings } from '../data/listings';
+import { fetchLiveListings, filterListings } from '../services/listingsApi';
 
 const SORT_LABELS: Record<ListingFilters['sortBy'], string> = {
   'yield-desc': 'Highest Yield',
@@ -19,8 +20,16 @@ export default function SearchPage() {
   const [filters, setFilters] = useState<ListingFilters>({ sortBy: 'yield-desc' });
   const [showFilters, setShowFilters] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
+  const [allListings, setAllListings] = useState<PropertyListing[]>([]);
 
-  const results = useMemo(() => getListings(filters), [filters]);
+  useEffect(() => {
+    fetchLiveListings().then(setAllListings);
+  }, []);
+
+  const results = useMemo(
+    () => allListings.length > 0 ? filterListings(allListings, filters) : getListings(filters),
+    [filters, allListings]
+  );
 
   const handleFiltersChange = (newFilters: ListingFilters) => {
     setFilters(newFilters);

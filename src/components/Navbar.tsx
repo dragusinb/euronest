@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Map, BarChart3, ScrollText, Scale, Search, LayoutDashboard, TrendingUp, Moon, Sun, Menu, X } from 'lucide-react';
 import { useUIStore } from '../store';
 import { useState } from 'react';
+import DataFreshness from './DataFreshness';
 
 const navItems = [
   { to: '/explore', label: 'Explore', icon: Map },
@@ -28,6 +29,9 @@ export default function Navbar() {
         </div>
         <span className="text-xl font-bold text-gray-900">EuroNest</span>
         <span className="text-xs text-gray-500 hidden sm:inline ml-1">AI Investment Advisor</span>
+        <div className="hidden sm:block ml-2">
+          <DataFreshness />
+        </div>
       </Link>
 
       {/* Desktop nav */}
