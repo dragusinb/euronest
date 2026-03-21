@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MapView from '../components/MapView';
 import CountrySidebar from '../components/CountrySidebar';
+import { countries } from '../data/countries';
 
 export default function HomePage() {
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
@@ -34,10 +35,9 @@ export default function HomePage() {
             className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-sm font-medium shadow-lg"
           >
             <option value="">All Countries</option>
-            {['greece', 'france', 'finland'].map(id => {
-              const country = { greece: '\u{1F1EC}\u{1F1F7} Greece', france: '\u{1F1EB}\u{1F1F7} France', finland: '\u{1F1EB}\u{1F1EE} Finland' }[id];
-              return <option key={id} value={id}>{country}</option>;
-            })}
+            {countries.map(c => (
+              <option key={c.id} value={c.id}>{c.flag} {c.name}</option>
+            ))}
           </select>
         </div>
       </div>

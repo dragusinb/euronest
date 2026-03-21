@@ -16,11 +16,9 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
 });
 
-// Bounds framing all cities: from Cyprus (34°N) to Helsinki (60°N), Lisbon (9°W) to Tallinn (25°E)
-const EUROPE_BOUNDS: L.LatLngBoundsExpression = [
-  [33.5, -11.0],  // SW: southern Cyprus / western Ireland
-  [62.0, 30.0],   // NE: just above Helsinki/Tallinn
-];
+// Center of Europe (roughly Belgium) and zoom that shows Portugal to Finland, Cyprus to Scandinavia
+const EUROPE_CENTER: [number, number] = [48.5, 13.0];
+const EUROPE_ZOOM = 4;
 
 function createYieldIcon(city: City) {
   const cls = yieldClass(city.grossYield);
@@ -42,7 +40,7 @@ function MapController({ selectedCountry }: { selectedCountry: string | null }) 
         map.flyTo(country.center, country.zoom, { duration: 1.2 });
       }
     } else {
-      map.flyToBounds(EUROPE_BOUNDS, { duration: 1.2, padding: [20, 20] });
+      map.setView(EUROPE_CENTER, EUROPE_ZOOM, { animate: true });
     }
   }, [selectedCountry, map]);
 
@@ -64,8 +62,8 @@ export default function MapView({ selectedCountry, onSelectCity }: MapViewProps)
 
   return (
     <MapContainer
-      bounds={EUROPE_BOUNDS}
-      boundsOptions={{ padding: [20, 20] }}
+      center={EUROPE_CENTER}
+      zoom={EUROPE_ZOOM}
       className="h-full w-full rounded-lg"
       scrollWheelZoom={true}
       style={{ height: '100%', minHeight: '500px' }}
