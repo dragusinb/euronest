@@ -8,7 +8,18 @@ type CompareMode = 'countries' | 'cities';
 
 export default function ComparePage() {
   const [mode, setMode] = useState<CompareMode>('countries');
+  const [selectedCountries, setSelectedCountries] = useState<string[]>(['greece', 'france', 'finland', 'spain', 'germany']);
   const [selectedCities, setSelectedCities] = useState<string[]>(['athens', 'paris', 'helsinki']);
+
+  const toggleCountry = (countryId: string) => {
+    setSelectedCountries(prev =>
+      prev.includes(countryId)
+        ? prev.filter(c => c !== countryId)
+        : prev.length < 6
+          ? [...prev, countryId]
+          : prev
+    );
+  };
 
   const toggleCity = (cityId: string) => {
     setSelectedCities(prev =>
@@ -20,23 +31,25 @@ export default function ComparePage() {
     );
   };
 
-  // Country comparison data
-  const countryData = countries.map(country => {
-    const countryCities = getCitiesByCountry(country.id);
-    const avgPrice = countryCities.reduce((sum, c) => sum + c.averagePricePerSqm, 0) / countryCities.length;
-    const avgGross = countryCities.reduce((sum, c) => sum + c.grossYield, 0) / countryCities.length;
-    const avgNet = countryCities.reduce((sum, c) => sum + c.netYield, 0) / countryCities.length;
-    return {
-      name: `${country.flag} ${country.name}`,
-      avgPricePerSqm: Math.round(avgPrice),
-      avgGrossYield: parseFloat(avgGross.toFixed(1)),
-      avgNetYield: parseFloat(avgNet.toFixed(1)),
-      easeOfPurchase: country.scores.easeOfPurchase,
-      rentalFriendliness: country.scores.rentalFriendliness,
-      marketLiquidity: country.scores.marketLiquidity,
-      taxFavorability: country.scores.taxFavorability,
-    };
-  });
+  // Country comparison data - filtered to selected countries only
+  const countryData = countries
+    .filter(country => selectedCountries.includes(country.id))
+    .map(country => {
+      const countryCities = getCitiesByCountry(country.id);
+      const avgPrice = countryCities.reduce((sum, c) => sum + c.averagePricePerSqm, 0) / countryCities.length;
+      const avgGross = countryCities.reduce((sum, c) => sum + c.grossYield, 0) / countryCities.length;
+      const avgNet = countryCities.reduce((sum, c) => sum + c.netYield, 0) / countryCities.length;
+      return {
+        name: `${country.flag} ${country.name}`,
+        avgPricePerSqm: Math.round(avgPrice),
+        avgGrossYield: parseFloat(avgGross.toFixed(1)),
+        avgNetYield: parseFloat(avgNet.toFixed(1)),
+        easeOfPurchase: country.scores.easeOfPurchase,
+        rentalFriendliness: country.scores.rentalFriendliness,
+        marketLiquidity: country.scores.marketLiquidity,
+        taxFavorability: country.scores.taxFavorability,
+      };
+    });
 
   const radarData = [
     { metric: 'Ease of Purchase', ...Object.fromEntries(countryData.map(c => [c.name, c.easeOfPurchase])) },
@@ -45,7 +58,7 @@ export default function ComparePage() {
     { metric: 'Tax Favorability', ...Object.fromEntries(countryData.map(c => [c.name, c.taxFavorability])) },
   ];
 
-  const colors = ['#3b82f6', '#059669', '#d97706', '#dc2626', '#8b5cf6'];
+  const colors = ['#3b82f6', '#059669', '#d97706', '#dc2626', '#8b5cf6', '#ec4899'];
 
   // City comparison data
   const cityCompareData = selectedCities.map(cityId => {
@@ -90,6 +103,28 @@ export default function ComparePage() {
 
         {mode === 'countries' ? (
           <>
+            {/* Country selector */}
+            <div className="bg-white rounded-xl border border-gray-200 p-4 mb-6">
+              <div className="text-sm text-gray-500 mb-3">Select up to 6 countries to compare:</div>
+              <div className="flex flex-wrap gap-2">
+                {countries.map(country => {
+                  const isSelected = selectedCountries.includes(country.id);
+                  return (
+                    <button
+                      key={country.id}
+                      onClick={() => toggleCountry(country.id)}
+                      className={`text-sm px-3 py-1.5 rounded-full cursor-pointer border transition-colors
+                        ${isSelected
+                          ? 'bg-blue-600 text-white border-blue-600'
+                          : 'bg-white text-gray-600 border-gray-200 hover:border-blue-300'}`}
+                    >
+                      {country.flag} {country.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
             {/* Country comparison table */}
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden mb-8">
               <div className="overflow-x-auto">

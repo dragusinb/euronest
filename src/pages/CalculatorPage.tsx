@@ -14,10 +14,32 @@ interface CalcInputs {
   insuranceAnnual: number;
 }
 
+const defaultFallback = { transferTax: 3, notaryFees: 1, agentFees: 0, propertyTaxPct: 0.5, incomeTaxPct: 20, label: 'Unknown' };
+
 const countryDefaults: Record<string, { transferTax: number; notaryFees: number; agentFees: number; propertyTaxPct: number; incomeTaxPct: number; label: string }> = {
   greece: { transferTax: 3.09, notaryFees: 1.5, agentFees: 2.0, propertyTaxPct: 0.5, incomeTaxPct: 15, label: 'Greece' },
   france: { transferTax: 5.8, notaryFees: 2.0, agentFees: 0, propertyTaxPct: 1.0, incomeTaxPct: 20, label: 'France' },
   finland: { transferTax: 2.0, notaryFees: 0.5, agentFees: 0, propertyTaxPct: 0.93, incomeTaxPct: 30, label: 'Finland' },
+  spain: { transferTax: 8.0, notaryFees: 1.5, agentFees: 0, propertyTaxPct: 0.7, incomeTaxPct: 19, label: 'Spain' },
+  portugal: { transferTax: 6.0, notaryFees: 1.5, agentFees: 0, propertyTaxPct: 0.5, incomeTaxPct: 28, label: 'Portugal' },
+  italy: { transferTax: 9.0, notaryFees: 2.0, agentFees: 0, propertyTaxPct: 0.76, incomeTaxPct: 21, label: 'Italy' },
+  germany: { transferTax: 5.0, notaryFees: 1.5, agentFees: 3.5, propertyTaxPct: 0.35, incomeTaxPct: 25, label: 'Germany' },
+  netherlands: { transferTax: 2.0, notaryFees: 1.0, agentFees: 0, propertyTaxPct: 0.5, incomeTaxPct: 30, label: 'Netherlands' },
+  belgium: { transferTax: 12.0, notaryFees: 1.5, agentFees: 0, propertyTaxPct: 0.8, incomeTaxPct: 25, label: 'Belgium' },
+  austria: { transferTax: 3.5, notaryFees: 1.1, agentFees: 3.0, propertyTaxPct: 0.5, incomeTaxPct: 25, label: 'Austria' },
+  ireland: { transferTax: 1.0, notaryFees: 1.5, agentFees: 0, propertyTaxPct: 0.3, incomeTaxPct: 40, label: 'Ireland' },
+  poland: { transferTax: 2.0, notaryFees: 1.0, agentFees: 0, propertyTaxPct: 0.3, incomeTaxPct: 8.5, label: 'Poland' },
+  czechia: { transferTax: 0, notaryFees: 1.0, agentFees: 0, propertyTaxPct: 0.2, incomeTaxPct: 15, label: 'Czech Republic' },
+  hungary: { transferTax: 4.0, notaryFees: 1.0, agentFees: 0, propertyTaxPct: 0.3, incomeTaxPct: 15, label: 'Hungary' },
+  romania: { transferTax: 1.0, notaryFees: 1.5, agentFees: 0, propertyTaxPct: 0.2, incomeTaxPct: 10, label: 'Romania' },
+  croatia: { transferTax: 3.0, notaryFees: 1.0, agentFees: 0, propertyTaxPct: 0.3, incomeTaxPct: 10, label: 'Croatia' },
+  denmark: { transferTax: 0.6, notaryFees: 0.5, agentFees: 0, propertyTaxPct: 1.0, incomeTaxPct: 37, label: 'Denmark' },
+  sweden: { transferTax: 1.5, notaryFees: 0.5, agentFees: 0, propertyTaxPct: 0.75, incomeTaxPct: 30, label: 'Sweden' },
+  norway: { transferTax: 2.5, notaryFees: 0.5, agentFees: 0, propertyTaxPct: 0.7, incomeTaxPct: 22, label: 'Norway' },
+  estonia: { transferTax: 0, notaryFees: 0.5, agentFees: 0, propertyTaxPct: 0.3, incomeTaxPct: 20, label: 'Estonia' },
+  latvia: { transferTax: 2.0, notaryFees: 0.5, agentFees: 0, propertyTaxPct: 0.4, incomeTaxPct: 10, label: 'Latvia' },
+  lithuania: { transferTax: 0, notaryFees: 0.5, agentFees: 0, propertyTaxPct: 0.3, incomeTaxPct: 15, label: 'Lithuania' },
+  cyprus: { transferTax: 3.0, notaryFees: 1.0, agentFees: 0, propertyTaxPct: 0.2, incomeTaxPct: 20, label: 'Cyprus' },
 };
 
 export default function CalculatorPage() {
@@ -36,7 +58,7 @@ export default function CalculatorPage() {
     setInputs(prev => ({ ...prev, [field]: value }));
   };
 
-  const cd = countryDefaults[inputs.countryId];
+  const cd = countryDefaults[inputs.countryId] ?? defaultFallback;
 
   // Calculations
   const annualRent = inputs.monthlyRent * 12;
@@ -73,19 +95,15 @@ export default function CalculatorPage() {
             {/* Country selector */}
             <div className="bg-white rounded-xl border border-gray-200 p-6">
               <h3 className="text-sm font-semibold text-gray-700 mb-3">Country</h3>
-              <div className="flex gap-2">
+              <select
+                value={inputs.countryId}
+                onChange={(e) => update('countryId', e.target.value)}
+                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-sm font-medium"
+              >
                 {countries.map(c => (
-                  <button
-                    key={c.id}
-                    onClick={() => update('countryId', c.id)}
-                    className={`flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium cursor-pointer border transition-colors
-                      ${inputs.countryId === c.id ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'}`}
-                  >
-                    <span>{c.flag}</span>
-                    <span className="hidden sm:inline">{c.name}</span>
-                  </button>
+                  <option key={c.id} value={c.id}>{c.flag} {c.name}</option>
                 ))}
-              </div>
+              </select>
               <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-gray-500">
                 <div>Transfer tax: {cd.transferTax}%</div>
                 <div>Notary fees: {cd.notaryFees}%</div>
