@@ -16,8 +16,8 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
 });
 
-// Center of Europe (roughly Belgium) and zoom that shows Portugal to Finland, Cyprus to Scandinavia
-const EUROPE_CENTER: [number, number] = [48.5, 13.0];
+// Center on Germany, zoom 4 shows all of Europe
+const EUROPE_CENTER: [number, number] = [51.2, 10.5];
 const EUROPE_ZOOM = 4;
 
 function createYieldIcon(city: City) {
