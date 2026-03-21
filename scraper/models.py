@@ -25,6 +25,7 @@ class PropertyListing:
     lastUpdated: str = ""     # ISO date
     address: str = ""
     neighborhood: str = ""
+    originalTitle: str = ""   # original non-English title before translation
 
     def to_dict(self):
         return asdict(self)

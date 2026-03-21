@@ -832,9 +832,7 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'EU/EEA citizens can buy freely?', value: 'Yes, with minor exceptions', details: 'EU/EEA citizens can purchase residential and commercial property freely. Agricultural and forestland purchases require special permission and are generally restricted to registered farmers.', severity: 'favorable' },
           { label: 'Transfer tax (illetékfizetés)', value: '4% up to HUF 1 billion', details: 'Property transfer tax (vagyonszerzési illeték) is 4% of the market value up to HUF 1 billion (~€2.5M), and 2% on the portion above. First-time buyers under 35 purchasing property under HUF 15M may qualify for exemptions.', severity: 'neutral' },
-          { label: 'Lawyer requirement', value: 'Mandatory for property transfers', details: 'A Hungarian lawyer (ügyvéd) must countersign all property purchase contracts. The lawyer handles the land registry application. Fees: typically 0.5–1.5% of purchase price (minimum HUF 50,000).', severity: 'neutral' },
-          { label: 'Land registry (ingatlan-nyilvántartás)', value: 'Reliable electronic system', details: 'The Hungarian land registry is maintained electronically by the local land offices. Registration provides strong legal protection. Registration process takes 30–60 days. Accessible online for verification.', severity: 'favorable' },
-          { label: 'Non-EU buyer restrictions', value: 'Permission required from government office', details: 'Non-EU/EEA citizens must obtain permission from the competent government office (kormányhivatal) to purchase property. Usually granted for residential use but adds 2–3 months to the process.', severity: 'neutral' }
+          { label: 'Lawyer requirement', value: 'Mandatory for property transfers', details: 'A Hungarian lawyer (ügyvéd) must countersign all property purchase contracts. The lawyer handles the land registry application. Fees: typically 0.5–1.5% of purchase price (minimum HUF 50,000).', severity: 'neutral' }
         ]
       },
       {
@@ -843,7 +841,6 @@ export const regulations: Regulation[] = [
         icon: 'Key',
         items: [
           { label: 'Tenant protections', value: 'Relatively weak', details: 'Hungarian tenant protections are less extensive than Western Europe. Leases can be terminated by landlord with proper notice (typically 30–90 days). Non-payment eviction through courts can still take several months.', severity: 'favorable' },
-          { label: 'Rent control', value: 'No rent control', details: 'Hungary has no rent control. Rents are freely negotiated between landlord and tenant. No restrictions on rent increases between lease periods.', severity: 'favorable' },
           { label: 'Short-term rentals', value: 'Registration required', details: 'Short-term rental properties must be registered with the local municipality and obtain a registration number. Budapest districts may have additional requirements. A tourist tax applies per guest night.', severity: 'neutral' },
           { label: 'Rental yield potential', value: 'Attractive, affordable entry point', details: 'Gross yields of 5–8% in Budapest. Very affordable entry prices compared to Western Europe. Strong demand from students, expats, and tourists. Districts V, VI, VII, and VIII in Budapest are popular for investment.', severity: 'favorable' }
         ]
@@ -853,11 +850,9 @@ export const regulations: Regulation[] = [
         title: 'Tax Regime',
         icon: 'Calculator',
         items: [
-          { label: 'Rental income tax', value: '15% personal income tax', details: 'Rental income is subject to 15% personal income tax (SZJA). Net income calculated after deducting documented expenses (or 10% flat cost deduction). No social contributions on rental income for private landlords.', severity: 'neutral' },
-          { label: 'Local business tax', value: '0–2% on rental income if registered', details: 'Some municipalities levy a local business tax (helyi iparűzési adó) of up to 2% on rental activities. Budapest districts typically charge 2%. Only applies to registered rental businesses.', severity: 'neutral' },
+          { label: 'Rental income tax', value: '15% personal income tax + local tax', details: 'Rental income is subject to 15% personal income tax (SZJA). Some municipalities levy a local business tax (helyi iparűzési adó) of up to 2%. Net income calculated after deducting documented expenses (or 10% flat cost deduction).', severity: 'neutral' },
           { label: 'Capital gains tax', value: '15% with 5-year taper', details: 'Capital gains on property taxed at 15% SZJA. Gain is reduced by 10% for each year of ownership after the 5th year, resulting in full exemption after 15 years.', severity: 'neutral' },
-          { label: 'Property tax', value: 'Varies by municipality, generally low', details: 'Annual property tax (building tax / telekadó) rates set by each municipality. Budapest districts typically charge HUF 1,000–1,800/sqm. Some municipalities outside Budapest do not levy property tax at all.', severity: 'favorable' },
-          { label: 'VAT on new properties', value: '27% (among highest in EU)', details: 'Hungary\'s 27% VAT rate is the highest in the EU. New properties from developers include VAT. Reduced 5% VAT has been available for new residential construction in certain periods – check current status.', severity: 'restrictive' }
+          { label: 'Property tax', value: 'Varies by municipality, generally low', details: 'Annual property tax (building tax / telekadó) rates set by each municipality. Budapest districts typically charge HUF 1,000–1,800/sqm. Some municipalities outside Budapest do not levy property tax at all.', severity: 'favorable' }
         ]
       },
       {
@@ -876,7 +871,6 @@ export const regulations: Regulation[] = [
         icon: 'Info',
         items: [
           { label: 'Language barrier', value: 'Significant', details: 'Hungarian is one of Europe\'s most difficult languages. All legal documents are in Hungarian. English is improving among younger professionals in Budapest but limited elsewhere. A bilingual lawyer is essential.', severity: 'restrictive' },
-          { label: 'Property management', value: 'Available in Budapest', details: 'Short-term rental management is well-developed in Budapest. Long-term rental management growing. Expect 15–25% for Airbnb management, 8–12% for long-term. Limited options outside Budapest.', severity: 'neutral' },
           { label: 'Affordability', value: 'Among the most affordable EU capitals', details: 'Budapest remains significantly cheaper than Western European capitals. Average apartment prices: €2,000–4,000/sqm in central Budapest. Excellent value for money, though prices have risen sharply since 2015.', severity: 'favorable' },
           { label: 'Currency risk', value: 'Hungarian forint (HUF), not euro', details: 'Hungary uses the forint (HUF), which can be volatile. The HUF has depreciated significantly against EUR in recent years. This creates risk but also means cheaper entry for euro-based investors.', severity: 'restrictive' }
         ]
@@ -894,10 +888,8 @@ export const regulations: Regulation[] = [
         icon: 'Home',
         items: [
           { label: 'EU/EEA citizens – apartments', value: 'Can buy freely', details: 'EU/EEA citizens can purchase apartments, houses, and commercial property freely, on the same terms as Romanian citizens. No restrictions on urban property.', severity: 'favorable' },
-          { label: 'Agricultural/forest land', value: 'Restricted for foreigners', details: 'EU/EEA citizens cannot directly purchase agricultural or forest land. They must establish a Romanian company (SRL) to hold such land. Pre-emption rights apply for neighbors, co-owners, and the Romanian state.', severity: 'restrictive' },
           { label: 'Transfer costs', value: 'Low (~0.5–2% total)', details: 'No transfer tax per se. Costs include: notary fees (0.5–1.5% on a sliding scale), land registry fee (~0.15%), and authentication tax. Total transaction costs are among the lowest in Europe.', severity: 'favorable' },
-          { label: 'Notary requirement', value: 'Mandatory for property transfers', details: 'All property sales must be authenticated by a Romanian notary public. The notary verifies the property, collects taxes, and submits the land registry application. Process is straightforward.', severity: 'neutral' },
-          { label: 'Land registry (carte funciară)', value: 'Improving but gaps remain', details: 'Romania\'s land registration system has been modernized with EU funding. Urban areas are well-registered. Rural areas may still have incomplete records. Always verify title through a lawyer.', severity: 'neutral' }
+          { label: 'Notary requirement', value: 'Mandatory for property transfers', details: 'All property sales must be authenticated by a Romanian notary public. The notary verifies the property, collects taxes, and submits the land registry application. Process is straightforward.', severity: 'neutral' }
         ]
       },
       {
@@ -905,8 +897,7 @@ export const regulations: Regulation[] = [
         title: 'Rental Regulations',
         icon: 'Key',
         items: [
-          { label: 'Tenant protections', value: 'Relatively weak', details: 'Romanian law provides basic tenant protections, but they are less extensive than Western Europe. Eviction for non-payment can be pursued through courts, typically taking 3–6 months. No winter eviction moratorium.', severity: 'favorable' },
-          { label: 'Rent control', value: 'No rent control', details: 'Romania has no rent control. Rents are freely set by the market. Rent increases between lease periods are unrestricted.', severity: 'favorable' },
+          { label: 'Tenant protections', value: 'Relatively weak, no rent control', details: 'Romanian law provides basic tenant protections, less extensive than Western Europe. No rent control; rents are freely set by the market. Eviction for non-payment typically takes 3–6 months.', severity: 'favorable' },
           { label: 'Short-term rentals', value: 'Lightly regulated', details: 'Short-term rentals require classification from the Ministry of Tourism. Must register and obtain a tourism certificate. Process is bureaucratic but generally achievable. No day limits currently imposed.', severity: 'neutral' },
           { label: 'Rental yield potential', value: 'Strong in Bucharest and tech cities', details: 'Gross yields of 6–9% in Bucharest, Cluj-Napoca, Timișoara, and Iași. Growing tech sector and returning diaspora drive demand. Affordable entry prices with strong rental demand.', severity: 'favorable' }
         ]
@@ -916,11 +907,9 @@ export const regulations: Regulation[] = [
         title: 'Tax Regime',
         icon: 'Calculator',
         items: [
-          { label: 'Rental income tax', value: '10% flat rate', details: 'Net rental income is taxed at a flat 10% rate. Deductible expense of 20% is automatically applied (no documentation needed), plus specific deductions for repairs and improvements.', severity: 'favorable' },
-          { label: 'Health insurance contribution', value: '10% CASS on rental income', details: 'Rental income above a threshold (12 minimum gross salaries) triggers a 10% health insurance contribution (CASS). This effectively raises the total tax burden. Capped at a maximum amount.', severity: 'neutral' },
-          { label: 'Capital gains tax', value: '10% on gains (with deductions)', details: 'Capital gains from property sales are taxed at 10%. A notional deduction is available based on holding period. Properties held over 3 years benefit from additional deductions. Primary residence is not specifically exempt.', severity: 'neutral' },
-          { label: 'Property tax', value: 'Very low', details: 'Annual property tax (impozit pe clădiri) ranges from 0.08–0.2% of the taxable value for residential properties. Commercial properties: 0.2–1.3%. Taxable values are set by local authorities and are typically below market value.', severity: 'favorable' },
-          { label: 'Corporate structure (SRL)', value: 'Can be tax-efficient', details: 'Holding property through an SRL (limited liability company) is taxed at 1% micro-enterprise tax (under €500,000 revenue) or 16% corporate tax. Can be advantageous for multiple properties or commercial investments.', severity: 'favorable' }
+          { label: 'Rental income tax', value: '10% flat rate', details: 'Net rental income is taxed at a flat 10% rate. Deductible expense of 20% is automatically applied. Health insurance (CASS 10%) may apply above a threshold, raising effective burden.', severity: 'favorable' },
+          { label: 'Capital gains tax', value: '10% on gains (with deductions)', details: 'Capital gains from property sales are taxed at 10%. A notional deduction is available based on holding period. Properties held over 3 years benefit from additional deductions.', severity: 'neutral' },
+          { label: 'Property tax', value: 'Very low', details: 'Annual property tax (impozit pe clădiri) ranges from 0.08–0.2% of the taxable value for residential properties. Taxable values are set by local authorities and are typically below market value.', severity: 'favorable' }
         ]
       },
       {
@@ -939,7 +928,6 @@ export const regulations: Regulation[] = [
         icon: 'Info',
         items: [
           { label: 'Language barrier', value: 'Moderate', details: 'Romanian is the official language (a Romance language). Younger professionals and the tech sector often speak excellent English. Legal documents are in Romanian. Bilingual lawyers available in major cities.', severity: 'neutral' },
-          { label: 'Property management', value: 'Developing market', details: 'Property management services are growing, especially in Bucharest and Cluj-Napoca. Short-term rental management available via platforms. Expect 15–25% for Airbnb, 8–12% for long-term management.', severity: 'neutral' },
           { label: 'Growth potential', value: 'Strong economic fundamentals', details: 'Romania has one of the EU\'s fastest-growing economies. Rising incomes, growing tech sector (especially Cluj-Napoca), and EU infrastructure investment support long-term property appreciation.', severity: 'favorable' },
           { label: 'Currency risk', value: 'Romanian leu (RON), not euro', details: 'Romania uses the leu (RON). The currency has been relatively stable against the euro (managed float by NBR). Euro adoption target has been repeatedly postponed. Currency risk is moderate.', severity: 'neutral' }
         ]
@@ -958,9 +946,7 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'EU/EEA citizens can buy freely?', value: 'Yes, since EU accession (2013)', details: 'EU/EEA citizens can purchase property in Croatia on equal terms with Croatian citizens since Croatia joined the EU in July 2013. No restrictions on residential, commercial, or agricultural property.', severity: 'favorable' },
           { label: 'Transfer tax', value: '3% of market value', details: 'Real estate transfer tax (porez na promet nekretnina) is 3% of the estimated market value (as assessed by the tax authority, not necessarily the contract price). Paid by the buyer.', severity: 'neutral' },
-          { label: 'Notary/lawyer', value: 'Lawyer recommended, notary for signatures', details: 'While a notary (javni bilježnik) authenticates signatures, a lawyer (odvjetnik) should draft and review the purchase contract. Legal fees: typically 1–2% of purchase price.', severity: 'neutral' },
-          { label: 'Land registry (zemljišne knjige)', value: 'Improving but verify carefully', details: 'Croatia\'s land registry has been digitized but historical records can be incomplete or inconsistent. Always verify ownership through both the land registry (gruntovnica) and the cadastre (katastar). Discrepancies are common with older properties.', severity: 'neutral' },
-          { label: 'OIB requirement', value: 'Personal identification number needed', details: 'All buyers must obtain an OIB (osobni identifikacijski broj) – a personal identification number – before purchasing. Can be obtained from the tax office. Required for all legal and financial transactions.', severity: 'neutral' }
+          { label: 'Notary/lawyer', value: 'Lawyer recommended, notary for signatures', details: 'While a notary (javni bilježnik) authenticates signatures, a lawyer (odvjetnik) should draft and review the purchase contract. Legal fees: typically 1–2% of purchase price.', severity: 'neutral' }
         ]
       },
       {
@@ -970,7 +956,6 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'Short-term tourism rentals', value: 'Very popular, licensed system', details: 'Croatia has a well-established system for tourist rentals (iznajmljivanje turistima). Requires registration with the local tourist board and county. Categories from 2–5 stars. Strong demand along the Adriatic coast.', severity: 'favorable' },
           { label: 'Rental income tax (paušal)', value: '10% flat tax (lump-sum for tourism)', details: 'Private landlords renting to tourists can opt for the paušalni porez (lump-sum tax) based on bed count and location, often resulting in very favorable effective rates. Alternative: flat 10% on actual income.', severity: 'favorable' },
-          { label: 'Tenant protections (long-term)', value: 'Moderate', details: 'Long-term leases have moderate tenant protections. Minimum 5-year lease if the tenant has no alternative housing. Eviction requires court proceedings but is generally more efficient than Western Europe.', severity: 'neutral' },
           { label: 'Tourism demand', value: 'Very strong along Adriatic coast', details: 'Croatia\'s Adriatic coast (Dubrovnik, Split, Hvar, Zadar, Istria) has booming tourism demand. Occupancy rates of 70–90% during summer season. Year-round rental viable in Split and Dubrovnik.', severity: 'favorable' }
         ]
       },
@@ -981,8 +966,7 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'Rental income tax', value: '10% flat rate', details: 'Rental income is taxed at a flat 10% rate on net income (after deductions) or via the lump-sum system for tourist rentals. Croatia adopted the euro in January 2023, eliminating currency risk for eurozone investors.', severity: 'favorable' },
           { label: 'Capital gains tax', value: '10% if sold within 2 years', details: 'Capital gains tax of 10% applies only if the property is sold within 2 years of purchase. Exempt after 2 years. This is one of the shortest holding periods for tax-free gains in Europe.', severity: 'favorable' },
-          { label: 'Property tax', value: 'Tourist levy, no annual property tax', details: 'Croatia does not currently have an annual property tax. Owners in tourist areas pay a holiday home tax (paušalni porez na kuće za odmor) of €0.60–5/sqm per year, set by the municipality. A national property tax has been discussed but not implemented.', severity: 'favorable' },
-          { label: 'Euro adoption', value: 'Croatia adopted the euro (January 2023)', details: 'Croatia joined the eurozone on January 1, 2023, eliminating currency risk for euro-based investors. This was seen as a positive signal for market stability and foreign investment.', severity: 'favorable' }
+          { label: 'Property tax', value: 'Tourist levy, no annual property tax', details: 'Croatia does not currently have an annual property tax. Owners in tourist areas pay a holiday home tax (paušalni porez na kuće za odmor) of €0.60–5/sqm per year, set by the municipality.', severity: 'favorable' }
         ]
       },
       {
@@ -1001,7 +985,6 @@ export const regulations: Regulation[] = [
         icon: 'Info',
         items: [
           { label: 'Language barrier', value: 'Moderate', details: 'Croatian is the official language. English is widely spoken in tourist areas and by younger generations. Legal documents are in Croatian. Bilingual lawyers are available in coastal cities.', severity: 'neutral' },
-          { label: 'Property management', value: 'Well-developed for tourism', details: 'Short-term rental management is well-established along the coast. Many agencies specialize in tourist property management. Expect 15–25% of rental income. Long-term management less common.', severity: 'favorable' },
           { label: 'Legalization issues', value: 'Check building permits carefully', details: 'Many Croatian properties, especially on the coast, were built or extended without proper permits. Legalization processes (ozakonjenje) exist but can be slow. Always verify building permits and usage permits before buying.', severity: 'restrictive' },
           { label: 'Seasonality', value: 'Strong summer, quiet winter', details: 'Coastal tourism is highly seasonal (June–September). Winter occupancy can be very low outside major cities. Split and Dubrovnik have the longest seasons. Consider year-round appeal when investing.', severity: 'neutral' }
         ]
@@ -1020,8 +1003,6 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'Residency requirement', value: 'Must have lived in Denmark 5 years', details: 'Non-residents (including EU citizens) generally cannot purchase property in Denmark without having lived in the country for at least 5 years. The Ministry of Justice can grant exemptions for year-round residences but not holiday homes. This is one of Europe\'s strictest rules.', severity: 'restrictive' },
           { label: 'Transfer tax (tinglysningsafgift)', value: '0.6% + DKK 1,850 fixed fee', details: 'The registration fee (tinglysningsafgift) is 0.6% of the property value plus a fixed fee of DKK 1,850 (~€250). For mortgages, an additional 1.45% + DKK 1,850 applies. Relatively low transfer costs.', severity: 'favorable' },
-          { label: 'Legal process', value: 'Well-regulated, buyer typically uses lawyer', details: 'Buyers typically engage an advokat (lawyer) to review the purchase contract, which is drafted by the seller\'s estate agent. A standard purchase offer includes a lawyer\'s approval clause. Costs: DKK 10,000–30,000.', severity: 'neutral' },
-          { label: 'Condition report (tilstandsrapport)', value: 'Strongly recommended', details: 'A condition report from a certified building inspector, combined with an electrical report (elinstallationsrapport), allows the seller to offer an ejerskifteforsikring (change-of-ownership insurance) instead of liability for defects.', severity: 'neutral' },
           { label: 'Andelsbolig (cooperative housing)', value: 'Common alternative to ownership', details: 'Cooperative housing (andelsbolig) is very common in Copenhagen. You buy a share in the cooperative, not the property itself. Different rules apply, including maximum prices set by the cooperative. Not true property ownership.', severity: 'neutral' }
         ]
       },
@@ -1032,8 +1013,7 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'Rent regulation', value: 'Strictly regulated in older buildings', details: 'Properties built before 1992 in regulated municipalities (most cities) are subject to cost-based rent ceilings (omkostningsbestemt leje). Rents based on operating costs + return on investment. Newer properties and single-family homes are less regulated.', severity: 'restrictive' },
           { label: 'Tenant protections', value: 'Very strong', details: 'Danish tenants have extensive protections. Landlord can only terminate for very specific reasons (own use, major renovation, demolition). Notice periods: 3 months (rooms) to 12 months (apartments). Eviction for non-payment requires court proceedings.', severity: 'restrictive' },
-          { label: 'Short-term rentals', value: 'Limited to 70 days/year', details: 'Homeowners can rent their property on platforms like Airbnb for up to 70 days per year (increased from 30 for properties in certain reporting schemes). Higher limits possible with municipal approval.', severity: 'restrictive' },
-          { label: 'Rental yield potential', value: 'Low to moderate', details: 'Gross yields of 2–4% in Copenhagen. Higher yields possible in Aarhus and smaller cities (4–6%). The combination of high prices and rent regulation limits returns. Capital appreciation has been the primary driver.', severity: 'neutral' }
+          { label: 'Short-term rentals', value: 'Limited to 70 days/year', details: 'Homeowners can rent their property on platforms like Airbnb for up to 70 days per year (increased from 30 for properties in certain reporting schemes). Higher limits possible with municipal approval.', severity: 'restrictive' }
         ]
       },
       {
@@ -1042,8 +1022,7 @@ export const regulations: Regulation[] = [
         icon: 'Calculator',
         items: [
           { label: 'Rental income tax', value: 'Up to 52.07% marginal rate', details: 'Rental income is taxed as personal income at progressive rates up to approximately 52.07% (including AM-bidrag of 8%, municipal tax ~25%, and state tax up to ~15%). Deductions available for expenses, interest, and depreciation.', severity: 'restrictive' },
-          { label: 'Property value tax (ejendomsværdiskat)', value: '0.51–1.4% of assessed value', details: 'Annual property value tax: 0.51% on the portion of assessed value up to DKK 9.2M, 1.4% above. Only applies to properties used as residence. Assessed values are being updated under the new property valuation system.', severity: 'neutral' },
-          { label: 'Land tax (grundskyld)', value: '1.6–3.4% of land value', details: 'Municipal land tax (grundskyld) ranges from 1.6% to 3.4% of assessed land value, set by each municipality. Copenhagen: ~3%. Combined with property value tax, the total annual tax burden is significant.', severity: 'restrictive' },
+          { label: 'Property taxes', value: '0.51–1.4% value tax + 1.6–3.4% land tax', details: 'Annual property value tax (ejendomsværdiskat): 0.51% up to DKK 9.2M, 1.4% above. Municipal land tax (grundskyld): 1.6–3.4%. Combined annual tax burden is significant.', severity: 'restrictive' },
           { label: 'Capital gains tax', value: 'Taxed as personal income (exempt if owner-occupied)', details: 'Capital gains on investment properties are taxed as personal income (up to ~52%). Owner-occupied properties lived in by the owner are fully exempt (parcelhusreglen). Losses are generally deductible.', severity: 'neutral' }
         ]
       },
@@ -1063,9 +1042,8 @@ export const regulations: Regulation[] = [
         icon: 'Info',
         items: [
           { label: 'Language barrier', value: 'Very low', details: 'Danes speak excellent English. Most real estate agents, lawyers, and officials can work in English. Legal documents are in Danish but translation services are readily available.', severity: 'favorable' },
-          { label: 'Property management', value: 'Professional and regulated', details: 'Property management (ejendomsadministration) is a well-regulated profession. Major firms handle large portfolios. Expect 3–6% of rental income for management. Co-ownership associations (ejerforening) manage shared buildings.', severity: 'favorable' },
           { label: 'High cost of living', value: 'Among Europe\'s most expensive', details: 'Denmark has one of Europe\'s highest costs of living. Property prices in Copenhagen are very high (DKK 40,000–80,000/sqm). This limits entry but provides stability and strong institutional demand.', severity: 'restrictive' },
-          { label: 'Mortgage access', value: 'Danish mortgage system is unique', details: 'Denmark\'s mortgage system (realkreditlån) offers some of the lowest interest rates in Europe with terms up to 30 years. Non-residents may have difficulty accessing Danish mortgages. Consider international financing.', severity: 'neutral' }
+          { label: 'Currency', value: 'Danish krone (DKK), pegged to euro', details: 'Denmark uses the krone, pegged closely to the euro via ERM II. Currency risk is minimal for euro-based investors.', severity: 'neutral' }
         ]
       }
     ]
@@ -1082,9 +1060,7 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'EU/EEA citizens can buy freely?', value: 'Yes, no restrictions', details: 'No restrictions on any nationality purchasing property in Sweden. Foreign buyers have the same rights as Swedish citizens. No permit or approval required.', severity: 'favorable' },
           { label: 'Stamp duty (stämpelskatt)', value: '1.5% for individuals, 4.25% for companies', details: 'Stamp duty (lagfartsstämpel) is 1.5% of the purchase price (or assessed value, whichever is higher) for individuals. Legal entities pay 4.25%. Mortgage stamp duty: 2% of the mortgage amount.', severity: 'neutral' },
-          { label: 'Bostadsrätt (cooperative housing)', value: 'Very common in cities', details: 'Most apartments in Swedish cities are bostadsrätter (cooperative housing). You buy the right to use an apartment owned by a housing cooperative (bostadsrättsförening). Monthly fee (avgift) covers building costs. Not direct ownership – more similar to a long-term lease.', severity: 'neutral' },
-          { label: 'Estate agent (fastighetsmäklare)', value: 'Impartial by law', details: 'Swedish estate agents are legally required to be impartial and serve both buyer and seller. Only the seller pays the agent\'s commission (typically 1.5–3%). The agent must disclose all known information about the property.', severity: 'favorable' },
-          { label: 'Bidding process', value: 'Open bidding, no set rules', details: 'Sweden has an informal bidding process with no legal framework. Bids are not binding until the contract is signed. This can lead to bidding wars, especially in Stockholm. No cooling-off period after contract signing.', severity: 'neutral' }
+          { label: 'Bostadsrätt (cooperative housing)', value: 'Very common in cities', details: 'Most apartments in Swedish cities are bostadsrätter (cooperative housing). You buy the right to use an apartment owned by a housing cooperative (bostadsrättsförening). Monthly fee (avgift) covers building costs. Not direct ownership – more similar to a long-term lease.', severity: 'neutral' }
         ]
       },
       {
@@ -1093,9 +1069,8 @@ export const regulations: Regulation[] = [
         icon: 'Key',
         items: [
           { label: 'Rent control (bruksvärdesystemet)', value: 'Extensive – collective bargaining system', details: 'Sweden has a unique rent-setting system where rents for most apartments are collectively negotiated between landlord organizations and tenant unions. Rents are based on "use value" (bruksvärde), not market rates. This keeps rents well below market in popular areas.', severity: 'restrictive' },
-          { label: 'Second-hand rental (andrahandsuthyrning)', value: 'Restricted, requires permission', details: 'Subletting a bostadsrätt requires the cooperative board\'s approval. Approval for private renting: typically granted for temporary reasons (work abroad, trial cohabitation). Landlord can charge a premium of up to 10–15% above the cooperative fee + capital cost.', severity: 'restrictive' },
-          { label: 'Tenant protections', value: 'Very strong (besittningsskydd)', details: 'Tenants have strong security of tenure (besittningsskydd) for indefinite leases. Landlord can only terminate for serious breach or own use (with compensation). Eviction is difficult and slow. First-hand contracts are highly valued.', severity: 'restrictive' },
-          { label: 'Rental yield potential', value: 'Low due to rent regulation', details: 'Gross yields of 2–3% in Stockholm due to regulated rents and high prices. Free-market rents are emerging for new builds (presumptionshyror) offering higher returns. Single-family homes (villor) can be rented more freely.', severity: 'neutral' }
+          { label: 'Subletting bostadsrätt', value: 'Restricted, requires board approval', details: 'Subletting a bostadsrätt requires the cooperative board\'s approval, typically granted for temporary reasons (work abroad, trial cohabitation). Landlord can charge a premium of up to 10–15% above the cooperative fee + capital cost.', severity: 'restrictive' },
+          { label: 'Tenant protections', value: 'Very strong (besittningsskydd)', details: 'Tenants have strong security of tenure (besittningsskydd) for indefinite leases. Landlord can only terminate for serious breach or own use (with compensation). Eviction is difficult and slow.', severity: 'restrictive' }
         ]
       },
       {
@@ -1105,8 +1080,7 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'Rental income tax', value: '30% capital income tax', details: 'Rental income from private property is taxed as capital income (inkomst av kapital) at a flat 30%. Deductible expenses include a standard deduction of SEK 40,000/year plus 20% of gross rent, or actual documented expenses.', severity: 'neutral' },
           { label: 'Capital gains tax', value: '22% effective rate (30% on 22/30 of gain)', details: 'Capital gains on property are taxed at 22% effective rate. Calculated as 22/30 of the gain taxed at 30% capital income tax rate. Deferral possible when buying a replacement residence (uppskov), up to SEK 3M.', severity: 'neutral' },
-          { label: 'Municipal property fee', value: 'SEK 9,525/year (max) for houses', details: 'Annual municipal property fee (kommunal fastighetsavgift): maximum SEK 9,525/year for houses (or 0.75% of assessed value, whichever is lower). Apartments in bostadsrättsföreningar: SEK 1,668/year max per unit.', severity: 'favorable' },
-          { label: 'No wealth tax', value: 'Abolished in 2007', details: 'Sweden abolished its wealth tax in 2007. No annual tax on net wealth. The low property fee and no wealth tax make long-term holding relatively affordable.', severity: 'favorable' }
+          { label: 'Municipal property fee', value: 'SEK 9,525/year (max) for houses', details: 'Annual municipal property fee (kommunal fastighetsavgift): maximum SEK 9,525/year for houses (or 0.75% of assessed value, whichever is lower). Apartments in bostadsrättsföreningar: SEK 1,668/year max per unit. No wealth tax (abolished 2007).', severity: 'favorable' }
         ]
       },
       {
@@ -1125,9 +1099,8 @@ export const regulations: Regulation[] = [
         icon: 'Info',
         items: [
           { label: 'Language barrier', value: 'Very low', details: 'Swedes speak excellent English. Most professionals in real estate, law, and banking work comfortably in English. Contracts and official documents are in Swedish but translation is readily available.', severity: 'favorable' },
-          { label: 'Housing queue system', value: 'Long queues for first-hand rentals', details: 'First-hand rental contracts in Stockholm can require 10–20+ years in the housing queue (bostadskö). This creates a large secondary/sublet market and supports property values.', severity: 'neutral' },
           { label: 'Market liquidity', value: 'Very high in cities', details: 'Stockholm, Gothenburg, and Malmö have very liquid markets. Bostadsrätter typically sell within 2–4 weeks. Rural and northern areas are much slower.', severity: 'favorable' },
-          { label: 'Building standards', value: 'Very high', details: 'Swedish building standards are among the highest in Europe. Strict energy efficiency, fire safety, and accessibility requirements. Older buildings are well-maintained through cooperative management.', severity: 'favorable' }
+          { label: 'Bidding process', value: 'Open ascending auction', details: 'Sweden has an informal bidding process with no legal framework. Bids are not binding until the contract is signed. This can lead to bidding wars, especially in Stockholm. Final prices may exceed asking by 10–30%.', severity: 'neutral' }
         ]
       }
     ]
@@ -1144,9 +1117,7 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'EEA citizens can buy freely?', value: 'Yes, no restrictions for residential', details: 'EEA citizens can purchase residential property freely. Norway is not an EU member but is part of the EEA. Agricultural properties and certain rural properties may require a concession (konsesjon) depending on size and type.', severity: 'favorable' },
           { label: 'Transfer tax (dokumentavgift)', value: '2.5% of market value', details: 'Documentary stamp duty (dokumentavgift) of 2.5% applies to all real estate transfers. Based on market value. Does not apply to cooperative housing (borettslag) shares, only to directly-owned property (selveier).', severity: 'neutral' },
-          { label: 'Borettslag (cooperative housing)', value: 'Very common in cities', details: 'Similar to Swedish bostadsrätt, borettslag cooperatives are very common in Norwegian cities. You buy a share (andel) in the cooperative. No transfer tax applies. Monthly felleskostnader (common costs) cover building expenses and often include the cooperative\'s shared mortgage.', severity: 'neutral' },
-          { label: 'Bidding process', value: 'Regulated open bidding', details: 'Norway has regulated bidding rules. Bids must be valid for at least until noon the next business day. Bidding history is transparent. The process typically concludes within 1–3 days of the first bid. Bids are binding.', severity: 'neutral' },
-          { label: 'Condition report (tilstandsrapport)', value: 'Mandatory since 2022', details: 'Since January 2022, sellers must provide a comprehensive condition report (tilstandsrapport) prepared by a certified inspector. This significantly reduces post-purchase dispute risks. Buyer should still review carefully.', severity: 'favorable' }
+          { label: 'Borettslag (cooperative housing)', value: 'Very common in cities', details: 'Similar to Swedish bostadsrätt, borettslag cooperatives are very common in Norwegian cities. You buy a share (andel) in the cooperative. No transfer tax applies. Monthly felleskostnader (common costs) cover building expenses and often include the cooperative\'s shared mortgage.', severity: 'neutral' }
         ]
       },
       {
@@ -1154,8 +1125,7 @@ export const regulations: Regulation[] = [
         title: 'Rental Regulations',
         icon: 'Key',
         items: [
-          { label: 'Rent regulation', value: 'Market-based, limited rent increase rules', details: 'Rents are freely negotiated for new leases. During a lease, annual increases are limited to CPI (konsumprisindeksen). Every 2.5 years, either party can demand rent adjusted to "market rent" (gjengs leie), not exceeding comparable market levels.', severity: 'neutral' },
-          { label: 'Tenant protections', value: 'Moderate to strong', details: 'Indefinite leases give tenants strong protections. Landlord can terminate with 3 months notice for limited reasons. Fixed-term leases (minimum 3 years, or 1 year if landlord shares the property) end automatically.', severity: 'neutral' },
+          { label: 'Tenant protections', value: 'Moderate to strong', details: 'Indefinite leases give tenants strong protections. Landlord can terminate with 3 months notice for limited reasons. Fixed-term leases (minimum 3 years, or 1 year if landlord shares the property) end automatically. No formal rent control but rents must not be "unreasonably high."', severity: 'neutral' },
           { label: 'Short-term rentals', value: 'Limited in cooperatives', details: 'For borettslag cooperatives, short-term rental is limited to 30 days per year (increased from original restrictions). Selveier (directly-owned) properties have fewer restrictions but must follow municipal rules.', severity: 'restrictive' },
           { label: 'Rental yield potential', value: 'Low, capital appreciation focus', details: 'Gross yields of 2–4% in Oslo and Bergen. Very high prices limit yield potential. Norway\'s market is driven by capital appreciation. Tromsø and Stavanger may offer slightly better yields.', severity: 'neutral' }
         ]
@@ -1167,8 +1137,7 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'Rental income tax', value: 'Up to 47.4% marginal rate', details: 'Rental income is taxed as ordinary income (alminnelig inntekt) at 22% base rate. If total personal income exceeds NOK 670,000, additional bracket taxes (trinnskatt) apply, bringing the effective marginal rate up to approximately 47.4%.', severity: 'restrictive' },
           { label: 'Capital gains tax', value: '22% (exempt for owner-occupied)', details: 'Capital gains on property are taxed at 22% as ordinary income. Full exemption if the property has been the owner\'s primary residence for at least 12 of the last 24 months. No taper relief or indexation for investment properties.', severity: 'neutral' },
-          { label: 'Wealth tax (formuesskatt)', value: '1% municipal + 0.4% state', details: 'Norway levies a wealth tax on net worldwide assets: 1% municipal tax on assets above NOK 1.7M (NOK 3.4M for couples), plus 0.4% state tax above NOK 1.7M (increasing to 0.4% for assets above NOK 20M). Property valued at 25–100% of market value depending on type.', severity: 'restrictive' },
-          { label: 'Property tax (eiendomsskatt)', value: '0–0.4% depending on municipality', details: 'Municipal property tax (eiendomsskatt) is optional and set by each municipality: 0–0.4% of assessed value. Oslo charges 0.3%. Some municipalities don\'t levy it at all. Assessed values are typically below market value.', severity: 'neutral' }
+          { label: 'Wealth tax (formuesskatt)', value: '1% municipal + 0.4% state', details: 'Norway levies a wealth tax on net worldwide assets: 1% municipal tax on assets above NOK 1.7M (NOK 3.4M for couples), plus 0.4% state tax above NOK 1.7M. Municipal property tax 0–0.4% also applies.', severity: 'restrictive' }
         ]
       },
       {
@@ -1186,9 +1155,8 @@ export const regulations: Regulation[] = [
         title: 'Practical Considerations',
         icon: 'Info',
         items: [
-          { label: 'Language barrier', value: 'Very low', details: 'Norwegians speak excellent English. Most professionals in real estate and law work comfortably in English. Official documents are in Norwegian (bokmål or nynorsk) but translation is readily available.', severity: 'favorable' },
           { label: 'Very high prices', value: 'Among Europe\'s most expensive', details: 'Norwegian property prices are among Europe\'s highest, especially in Oslo (NOK 70,000–120,000/sqm in central areas). High prices are supported by strong wages, low unemployment, and limited housing supply.', severity: 'restrictive' },
-          { label: 'Market liquidity', value: 'High in major cities', details: 'Oslo, Bergen, Stavanger, and Trondheim have very liquid markets. Properties typically sell within 1–3 weeks. Rural areas and northern Norway are slower.', severity: 'favorable' },
+          { label: 'Language barrier', value: 'Very low', details: 'Norwegians speak excellent English. Most professionals in real estate and law work comfortably in English. Official documents are in Norwegian but translation is readily available.', severity: 'favorable' },
           { label: 'Currency risk', value: 'Norwegian krone (NOK)', details: 'Norway uses the Norwegian krone (NOK), not the euro. NOK can be volatile, influenced by oil prices. This creates currency risk for foreign investors but also potential opportunity.', severity: 'neutral' }
         ]
       }
@@ -1205,10 +1173,8 @@ export const regulations: Regulation[] = [
         icon: 'Home',
         items: [
           { label: 'EU/EEA citizens can buy freely?', value: 'Yes, with minor restrictions on agricultural land', details: 'EU/EEA citizens can buy residential and commercial property freely. Agricultural and forest land over 10 hectares requires the buyer to demonstrate farming capability. No restrictions on apartments, houses, or commercial property.', severity: 'favorable' },
-          { label: 'Transfer tax', value: 'No transfer tax', details: 'Estonia does not levy a real estate transfer tax. The only transaction costs are notary fees (typically 0.5–1% of purchase price, minimum ~€100) and a small state fee for land register entry (~€15–30). Very low transaction costs.', severity: 'favorable' },
-          { label: 'Notary requirement', value: 'Mandatory for property transfers', details: 'All property transfers must be notarized. Estonian notaries verify ownership, prepare the contract, and handle land register applications. The process is efficient and can often be completed in 1–2 weeks.', severity: 'neutral' },
-          { label: 'e-Residency program', value: 'Digital identity for non-residents', details: 'Estonia\'s e-Residency program provides a government-issued digital identity for managing business remotely. While it doesn\'t grant property-buying advantages directly, it simplifies administrative processes and company formation.', severity: 'favorable' },
-          { label: 'Land register (kinnistusraamat)', value: 'Fully digital, reliable', details: 'Estonia\'s land register is fully digital and one of the most efficient in Europe. Entries are definitive proof of ownership. Registration is fast (typically 1–5 business days). Accessible online.', severity: 'favorable' }
+          { label: 'Transfer tax', value: 'No transfer tax (notary ~0.5%)', details: 'Estonia does not levy a real estate transfer tax. The only transaction costs are notary fees (typically 0.5–1% of purchase price) and a small state fee for land register entry (~€15–30). Very low transaction costs.', severity: 'favorable' },
+          { label: 'e-Residency program', value: 'Digital identity for non-residents', details: 'Estonia\'s e-Residency program provides a government-issued digital identity for managing business remotely. Simplifies administrative processes and company formation. Does not grant physical residency.', severity: 'favorable' }
         ]
       },
       {
@@ -1216,10 +1182,9 @@ export const regulations: Regulation[] = [
         title: 'Rental Regulations',
         icon: 'Key',
         items: [
-          { label: 'Tenant protections', value: 'Moderate', details: 'Estonian law provides basic tenant protections. Indefinite leases require 3 months notice from landlord with legal grounds. Fixed-term leases end automatically. Eviction for non-payment requires court proceedings (~2–4 months).', severity: 'neutral' },
-          { label: 'Rent control', value: 'No rent control', details: 'Estonia has no rent control. Rents are freely negotiated between landlord and tenant. Rent increases during a lease must be agreed or follow the contract terms.', severity: 'favorable' },
-          { label: 'Short-term rentals', value: 'Lightly regulated', details: 'Short-term rentals are relatively unregulated. Tallinn requires registration of accommodation services with the Tourism Register. No day limits currently imposed. Tourist tax applies in Tallinn.', severity: 'favorable' },
-          { label: 'Rental yield potential', value: 'Good in Tallinn', details: 'Gross yields of 5–7% in Tallinn. Strong rental demand from tech workers, students, and digital nomads. Tartu (university city) also offers good yields. Small market size means liquidity can be limited.', severity: 'favorable' }
+          { label: 'Short-term rentals', value: 'Lightly regulated, no rent control', details: 'Short-term rentals are relatively unregulated. Tallinn requires registration with the Tourism Register. No day limits. No rent control; rents are freely negotiated.', severity: 'favorable' },
+          { label: 'Very business-friendly', value: 'Digital-first processes', details: 'Estonia\'s digital-first approach makes rental registration, tax filing, and compliance straightforward. Most processes can be done online. Property management increasingly available.', severity: 'favorable' },
+          { label: 'Rental yield potential', value: 'Good in Tallinn (5–7%)', details: 'Gross yields of 5–7% in Tallinn. Strong rental demand from tech workers, students, and digital nomads. Tartu (university city) also offers good yields.', severity: 'favorable' }
         ]
       },
       {
@@ -1227,11 +1192,9 @@ export const regulations: Regulation[] = [
         title: 'Tax Regime',
         icon: 'Calculator',
         items: [
-          { label: 'Rental income tax', value: '20% flat rate', details: 'Rental income is taxed at a flat 20% rate for individuals. Deductible expenses are limited – only documented expenses directly related to earning the rental income. Non-residents taxed at the same 20% rate.', severity: 'neutral' },
-          { label: 'Capital gains tax', value: '20% flat rate', details: 'Capital gains on property sales are taxed at 20% flat rate. Primary residence exemption available if lived in for at least 2 years. No holding period exemption for investment properties.', severity: 'neutral' },
+          { label: 'Rental income tax', value: '20% flat rate', details: 'Rental income is taxed at a flat 20% rate for individuals. Deductible expenses are limited to documented expenses directly related to earning the rental income. Non-residents taxed at the same 20% rate.', severity: 'neutral' },
           { label: 'Corporate tax system', value: '0% on retained earnings (unique)', details: 'Estonia\'s unique corporate tax system taxes only distributed profits at 20% (14% for regular distributions). Retained/reinvested profits are untaxed. Holding property through an Estonian company can be very tax-efficient for reinvestment.', severity: 'favorable' },
-          { label: 'Land tax (maamaks)', value: '0.1–2.5% of land value', details: 'Annual land tax ranges from 0.1–2.5% of the assessed land value (not building value), set by the municipality. Residential land in Tallinn: typically 0.1–0.5%. Land under owner-occupied homes is exempt up to 1,500 sqm in cities.', severity: 'neutral' },
-          { label: 'No property tax on buildings', value: 'Only land is taxed', details: 'Estonia does not tax buildings – only the land they sit on (maamaks). This means no tax on the building value, making it favorable for owners of high-value structures on modest land plots.', severity: 'favorable' }
+          { label: 'Land tax (no building tax)', value: '0.1–2.5% of land value only', details: 'Estonia taxes only land (maamaks), not buildings. Residential land in Tallinn: typically 0.1–0.5%. Land under owner-occupied homes is exempt up to 1,500 sqm in cities. Capital gains taxed at 20% (primary residence exempt after 2 years).', severity: 'favorable' }
         ]
       },
       {
@@ -1250,9 +1213,8 @@ export const regulations: Regulation[] = [
         icon: 'Info',
         items: [
           { label: 'Language barrier', value: 'Low in Tallinn', details: 'Estonian is the official language, but English is very widely spoken in Tallinn, especially in the tech sector and among younger professionals. Russian is also widely spoken. Legal documents can often be provided in English.', severity: 'favorable' },
-          { label: 'Digital infrastructure', value: 'World-leading', details: 'Estonia is one of the most digitally advanced countries in the world. Most government services, including property registration and tax filing, can be done online. This makes remote property management more feasible.', severity: 'favorable' },
-          { label: 'Market size', value: 'Small but dynamic', details: 'Estonia has a population of only ~1.3 million. Tallinn dominates the property market. Small market size means limited liquidity but also opportunities. The tech sector (Wise, Bolt, Skype origins) drives demand.', severity: 'neutral' },
-          { label: 'Climate considerations', value: 'Cold winters, seasonal demand', details: 'Estonia has harsh winters with limited daylight. This affects property maintenance costs (heating, insulation) and seasonal rental demand. Budget for higher utility costs than Southern Europe.', severity: 'neutral' }
+          { label: 'Market prices', value: 'Affordable, rising steadily', details: 'Tallinn prices are well below Nordic capitals but have been rising 5–10% annually. The tech sector (Wise, Bolt, Skype origins) drives demand. Small market (~1.3M population) means limited liquidity.', severity: 'favorable' },
+          { label: 'Currency', value: 'Euro (since 2011)', details: 'Estonia uses the Euro, eliminating currency risk for Eurozone investors. Digital infrastructure is world-leading, making remote property management feasible.', severity: 'favorable' }
         ]
       }
     ]
@@ -1269,8 +1231,6 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'EU/EEA citizens can buy freely?', value: 'Yes, with some land restrictions', details: 'EU/EEA citizens can buy apartments, houses, and commercial property freely. Agricultural and forest land purchases by foreign citizens require registration with the State Land Service and compliance with land use regulations.', severity: 'favorable' },
           { label: 'Transfer tax', value: '2% of cadastral or contract value', details: 'Stamp duty (kancelejas nodeva) of 2% of the property value applies, based on the higher of the cadastral value or contract price. Additional registration fees are minor (~€15–30). Total transaction costs are moderate.', severity: 'neutral' },
-          { label: 'Notary requirement', value: 'Corroboration (notarial certification) needed', details: 'Property transfers require notarial certification (corroboration) for entry into the Land Register. A sworn notary (zvērināts notārs) handles the process. Notary fees are regulated and relatively modest.', severity: 'neutral' },
-          { label: 'Land Register (zemesgrāmata)', value: 'Reliable, publicly accessible', details: 'Latvia\'s Land Register is publicly accessible online. Entries provide strong legal certainty. Registration process takes approximately 10–15 business days. Always verify ownership and encumbrances before purchase.', severity: 'favorable' },
           { label: 'Affordable market', value: 'Among EU\'s most affordable', details: 'Latvia offers some of the EU\'s most affordable property prices, especially outside Riga. Average prices in Riga: €1,500–3,000/sqm. Jūrmala (beach resort): higher prices. Regional cities are very affordable.', severity: 'favorable' }
         ]
       },
@@ -1279,10 +1239,9 @@ export const regulations: Regulation[] = [
         title: 'Rental Regulations',
         icon: 'Key',
         items: [
-          { label: 'Tenant protections', value: 'Moderate', details: 'Latvian rental law provides basic tenant protections. Standard notice periods apply. Eviction for non-payment requires court proceedings. New rental law (2021) modernized and clarified tenant/landlord rights.', severity: 'neutral' },
-          { label: 'Rent control', value: 'No rent control', details: 'Latvia has no rent control. Rents are freely negotiated. Some historic tenants in denationalized buildings had transitional protections, but these have largely expired.', severity: 'favorable' },
+          { label: 'Tenant protections', value: 'Moderate, no rent control', details: 'Latvian rental law provides basic tenant protections. No rent control; rents are freely negotiated. New rental law (2021) modernized tenant/landlord rights. Eviction for non-payment requires court proceedings.', severity: 'neutral' },
           { label: 'Short-term rentals', value: 'Registration required', details: 'Short-term rental operators must register as a tourism service provider with the municipality. A guest registration system applies. Riga has been discussing additional regulations but no strict limits imposed.', severity: 'neutral' },
-          { label: 'Rental yield potential', value: 'Attractive in Riga', details: 'Gross yields of 5–8% in Riga. Strong demand from local workers, students, and growing expat community. Jūrmala offers seasonal tourism yields. Affordable entry prices support healthy returns.', severity: 'favorable' }
+          { label: 'Rental yield potential', value: 'Attractive in Riga (5–8%)', details: 'Gross yields of 5–8% in Riga. Strong demand from local workers, students, and growing expat community. Jūrmala offers seasonal tourism yields. Affordable entry prices support healthy returns.', severity: 'favorable' }
         ]
       },
       {
@@ -1292,8 +1251,7 @@ export const regulations: Regulation[] = [
         items: [
           { label: 'Rental income tax', value: '10% micro-enterprise or 20% standard', details: 'Individuals can register as micro-enterprise taxpayers and pay 10% on gross rental income (up to €25,000/year). Alternatively, standard personal income tax of 20% applies on net income. The micro-enterprise regime is very favorable for small landlords.', severity: 'favorable' },
           { label: 'Capital gains tax', value: '20% flat rate', details: 'Capital gains on property sales are taxed at 20% for individuals. Exempt if the property has been the taxpayer\'s primary residence for at least 12 months in the 60 months prior to sale and registered at that address.', severity: 'neutral' },
-          { label: 'Property tax (nekustamā īpašuma nodoklis)', value: '0.2–3% of cadastral value', details: 'Annual property tax: 0.2–0.6% for residential properties (based on cadastral value). Higher rates (up to 3%) may apply to neglected or vacant properties. Cadastral values are typically well below market value.', severity: 'neutral' },
-          { label: 'No wealth tax', value: 'No annual wealth tax', details: 'Latvia does not levy a wealth tax. Combined with the favorable micro-enterprise regime and moderate property taxes, the overall tax burden for property investors is relatively light.', severity: 'favorable' }
+          { label: 'Property tax', value: '0.2–3% of cadastral value', details: 'Annual property tax: 0.2–0.6% for residential properties (based on cadastral value). Higher rates (up to 3%) for neglected or vacant properties. No wealth tax. Overall tax burden for property investors is relatively light.', severity: 'neutral' }
         ]
       },
       {
@@ -1312,8 +1270,7 @@ export const regulations: Regulation[] = [
         icon: 'Info',
         items: [
           { label: 'Language barrier', value: 'Moderate', details: 'Latvian is the official language. Russian is widely spoken (about 30% of population). English is common among younger professionals and in Riga. Legal documents are in Latvian. Bilingual lawyers available in Riga.', severity: 'neutral' },
-          { label: 'Property management', value: 'Available in Riga', details: 'Property management services are available in Riga, including short-term rental management. Less developed outside the capital. Expect 10–20% of rental income for full management.', severity: 'neutral' },
-          { label: 'EU eurozone member', value: 'Euro adopted since 2014', details: 'Latvia adopted the euro in January 2014. No currency risk for eurozone investors. This has improved market transparency and foreign investor confidence.', severity: 'favorable' },
+          { label: 'Currency', value: 'Euro (since 2014)', details: 'Latvia adopted the euro in January 2014. No currency risk for eurozone investors. This has improved market transparency and foreign investor confidence.', severity: 'favorable' },
           { label: 'Soviet-era housing stock', value: 'Common but requires assessment', details: 'A significant portion of Latvia\'s housing stock consists of Soviet-era panel buildings (1960s–1980s). These may require renovation (insulation, plumbing, electrical). Newer developments offer modern standards. Assess building condition carefully.', severity: 'neutral' }
         ]
       }
@@ -1330,10 +1287,8 @@ export const regulations: Regulation[] = [
         icon: 'Home',
         items: [
           { label: 'EU/EEA citizens can buy freely?', value: 'Yes, including land', details: 'EU/EEA citizens can purchase all types of property in Lithuania, including agricultural land (since 2014, when transitional restrictions expired). Same conditions as Lithuanian citizens.', severity: 'favorable' },
-          { label: 'Transfer tax', value: 'No transfer tax (notary fees only)', details: 'Lithuania does not levy a real estate transfer tax. Transaction costs consist of notary fees (~0.45% of property value, minimum ~€30) and State Enterprise Centre of Registers fee (~€20–50). Very low transaction costs.', severity: 'favorable' },
-          { label: 'Notary requirement', value: 'Mandatory for all property transfers', details: 'All property purchase contracts must be notarized. The notary verifies ownership, checks encumbrances, and registers the transfer with the Centre of Registers. Process is efficient, typically completed within 1–2 weeks.', severity: 'neutral' },
-          { label: 'Centre of Registers', value: 'Reliable digital register', details: 'Lithuania\'s real estate register (Registrų centras) is fully digital and reliable. Provides definitive proof of ownership. Registration is fast (typically 1–3 business days). Publicly accessible for verification.', severity: 'favorable' },
-          { label: 'Market affordability', value: 'Very affordable, rising prices', details: 'Lithuanian property is affordable compared to Western Europe. Vilnius average: €2,000–3,500/sqm. Kaunas and Klaipėda are cheaper. Prices have risen significantly (30–50%) since 2020 but remain competitive.', severity: 'favorable' }
+          { label: 'Transfer tax', value: 'No transfer tax (notary ~0.5%)', details: 'Lithuania does not levy a real estate transfer tax. Transaction costs consist of notary fees (~0.45% of property value) and State Enterprise Centre of Registers fee (~€20–50). Very low transaction costs.', severity: 'favorable' },
+          { label: 'Notary requirement', value: 'Mandatory for all property transfers', details: 'All property purchase contracts must be notarized. The notary verifies ownership, checks encumbrances, and registers the transfer with the Centre of Registers. Process is efficient, typically completed within 1–2 weeks.', severity: 'neutral' }
         ]
       },
       {
@@ -1341,10 +1296,9 @@ export const regulations: Regulation[] = [
         title: 'Rental Regulations',
         icon: 'Key',
         items: [
-          { label: 'Tenant protections', value: 'Moderate', details: 'Lithuanian Civil Code provides standard tenant protections. Lease terms are generally respected. Eviction for non-payment requires court proceedings. Fixed-term leases end automatically. Notice period typically 1–3 months.', severity: 'neutral' },
-          { label: 'Rent control', value: 'No rent control', details: 'Lithuania has no rent control. Rents are freely negotiated between landlord and tenant. No restrictions on rent increases between lease periods.', severity: 'favorable' },
+          { label: 'Tenant protections', value: 'Moderate, no rent control', details: 'Lithuanian Civil Code provides standard tenant protections. No rent control; rents are freely negotiated. Eviction for non-payment requires court proceedings. Notice period typically 1–3 months.', severity: 'neutral' },
           { label: 'Short-term rentals', value: 'Registration required', details: 'Short-term accommodation services must be registered and comply with hygiene and safety standards. No strict day limits currently. Vilnius is discussing potential additional regulations.', severity: 'neutral' },
-          { label: 'Rental yield potential', value: 'Attractive in Vilnius and Kaunas', details: 'Gross yields of 5–7% in Vilnius. Strong demand from tech workers, students, and growing expat community. Kaunas offers similar yields at lower price points. Lithuania\'s tech sector (fintech hub) drives demand.', severity: 'favorable' }
+          { label: 'Growing tech hub demand', value: 'Strong yields in Vilnius (5–7%)', details: 'Gross yields of 5–7% in Vilnius. Strong demand from tech workers, students, and growing expat community. Lithuania\'s fintech sector drives demand. Kaunas offers similar yields at lower price points.', severity: 'favorable' }
         ]
       },
       {
@@ -1352,10 +1306,9 @@ export const regulations: Regulation[] = [
         title: 'Tax Regime',
         icon: 'Calculator',
         items: [
-          { label: 'Rental income tax', value: '15% flat rate (or 20% above threshold)', details: 'Individual rental income is taxed at 15% flat rate. If total annual income exceeds 60 average wages (~€100,000), the rate increases to 20% on the excess. Business license (verslo liudijimas) may offer more favorable treatment for small-scale landlords.', severity: 'favorable' },
+          { label: 'Rental income tax', value: '15% flat rate (or ~5% via business certificate)', details: 'Individual rental income is taxed at 15% flat rate. Business license (verslo liudijimas) may offer more favorable treatment (~5%) for small-scale landlords. 20% rate above €100k income threshold.', severity: 'favorable' },
           { label: 'Capital gains tax', value: '15% flat rate', details: 'Capital gains on property sales are taxed at 15% (20% above the high-income threshold). Exempt if the property has been the primary residence for at least 2 years. No holding period exemption for investment properties.', severity: 'neutral' },
-          { label: 'Property tax (nekilnojamojo turto mokestis)', value: '0.5–2% for high-value properties', details: 'Annual property tax of 0.5–2% applies only to the value of individual-owned property exceeding €150,000. Below this threshold, no property tax for individuals. This effectively exempts most single-property owners.', severity: 'favorable' },
-          { label: 'Social contributions', value: 'May apply to rental income', details: 'Health insurance contributions (6.98%) may apply to rental income if it is your primary source of income and you are not otherwise insured. Check with a tax advisor for your specific situation.', severity: 'neutral' }
+          { label: 'Property tax', value: '0.5–2% only above €150k value', details: 'Annual property tax of 0.5–2% applies only to the value of individual-owned property exceeding €150,000. Below this threshold, no property tax for individuals. This effectively exempts most single-property owners.', severity: 'favorable' }
         ]
       },
       {
@@ -1374,9 +1327,8 @@ export const regulations: Regulation[] = [
         icon: 'Info',
         items: [
           { label: 'Language barrier', value: 'Low to moderate', details: 'Lithuanian is the official language. English is widely spoken in Vilnius, especially in the tech and business sectors. Younger generations are highly English-proficient. Legal documents are in Lithuanian; translation services available.', severity: 'neutral' },
-          { label: 'Property management', value: 'Growing availability', details: 'Property management services are available in Vilnius and growing in Kaunas. Short-term rental management through platforms is common. Expect 10–20% of rental income. Self-management is also feasible.', severity: 'neutral' },
-          { label: 'Tech hub growth', value: 'Strong fintech and tech sector', details: 'Lithuania is Europe\'s leading fintech hub (by number of licensed fintech companies). Vilnius attracts tech workers from across Europe. This drives rental demand and supports property values in the capital.', severity: 'favorable' },
-          { label: 'EU eurozone member', value: 'Euro adopted since 2015', details: 'Lithuania adopted the euro in January 2015. No currency risk for eurozone investors. Has improved market confidence and simplified cross-border property investment.', severity: 'favorable' }
+          { label: 'Market prices', value: 'Affordable, rising fast', details: 'Vilnius prices have been rising 8–15% annually. Still affordable vs. Western Europe at €2,000–3,500/sqm in central Vilnius. Kaunas and Klaipėda are cheaper.', severity: 'favorable' },
+          { label: 'Currency', value: 'Euro (since 2015)', details: 'Lithuania adopted the euro in January 2015. No currency risk for eurozone investors. Has improved market confidence and simplified cross-border property investment.', severity: 'favorable' }
         ]
       }
     ]
@@ -1392,10 +1344,8 @@ export const regulations: Regulation[] = [
         icon: 'Home',
         items: [
           { label: 'EU/EEA citizens can buy freely?', value: 'Yes, no restrictions', details: 'EU/EEA citizens can purchase property in Cyprus without restrictions. Non-EU citizens need Council of Ministers approval (usually granted) and are limited to one property up to approximately 4,014 sqm of land.', severity: 'favorable' },
-          { label: 'Transfer fees', value: '3–8% progressive (but often 0 for new VAT properties)', details: 'Transfer fees: 3% on first €85,000, 5% on €85,001–€170,000, 8% above €170,000. However, new properties purchased with VAT (19%, reduced to 5% for primary residence) are exempt from transfer fees. This means most new-build purchases have 0% transfer fees.', severity: 'neutral' },
-          { label: 'VAT on new properties', value: '19% standard, 5% reduced for primary residence', details: 'New properties from developers are subject to 19% VAT (included in price). A reduced 5% VAT rate applies for the first 130 sqm of a primary residence (with total value cap). This benefit is available to EU citizens establishing residence.', severity: 'neutral' },
-          { label: 'Title deeds', value: 'Verify carefully – historical issues', details: 'Cyprus has had historical issues with title deed delays and properties built on mortgaged land. Legislation has improved the situation significantly. Always verify that clean title deeds exist or will be issued. Use a lawyer with local expertise.', severity: 'restrictive' },
-          { label: 'Stamp duty', value: '0.15–0.2% of property value', details: 'Stamp duty of 0.15% on the first €170,000 and 0.2% on the balance. Must be paid within 30 days of signing the contract. A relatively minor cost.', severity: 'favorable' }
+          { label: 'Transfer fees', value: '3–8% progressive (0 for VAT properties)', details: 'Transfer fees: 3% on first €85,000, 5% on €85,001–€170,000, 8% above €170,000. New properties purchased with VAT (19%, reduced to 5% for primary residence) are exempt from transfer fees.', severity: 'neutral' },
+          { label: 'Title deeds', value: 'Verify carefully – historical issues', details: 'Cyprus has had historical issues with title deed delays and properties built on mortgaged land. Legislation has improved the situation significantly. Always verify that clean title deeds exist or will be issued. Use a lawyer with local expertise.', severity: 'restrictive' }
         ]
       },
       {
@@ -1403,10 +1353,9 @@ export const regulations: Regulation[] = [
         title: 'Rental Regulations',
         icon: 'Key',
         items: [
-          { label: 'Tenant protections', value: 'Moderate', details: 'The Rent Control Law applies only to pre-1999 properties in designated controlled areas. Newer properties and properties outside controlled areas have minimal tenant protections. Landlord flexibility is generally good.', severity: 'favorable' },
-          { label: 'Rent control', value: 'Limited to older properties in controlled areas', details: 'Rent control only applies to tenancies created before December 31, 1999, in designated areas (Nicosia, Limassol, Larnaca, Famagusta). New leases are freely negotiated. This effectively means most investment properties are unregulated.', severity: 'favorable' },
+          { label: 'Tenant protections', value: 'Moderate, limited rent control', details: 'Rent control only applies to pre-1999 tenancies in designated areas. Newer properties and properties outside controlled areas have minimal tenant protections. Landlord flexibility is generally good for investment properties.', severity: 'favorable' },
           { label: 'Short-term rentals', value: 'Licensed and growing', details: 'Short-term tourist accommodation requires licensing from the Deputy Ministry of Tourism. Properties rated 1–5 stars. Growing market, especially in Paphos, Limassol, and Ayia Napa. Year-round demand from expats and tourists.', severity: 'neutral' },
-          { label: 'Rental yield potential', value: 'Attractive, especially Limassol and Paphos', details: 'Gross yields of 4–7% in Limassol, Paphos, and Larnaca. Strong demand from expats, international companies, and students. Limassol has seen significant corporate demand. Ayia Napa/Protaras offer seasonal tourism yields.', severity: 'favorable' }
+          { label: 'Expat rental demand', value: 'Strong in Limassol and Paphos (4–7%)', details: 'Gross yields of 4–7% in Limassol, Paphos, and Larnaca. Strong demand from expats, international companies, and students. Limassol has seen significant corporate demand.', severity: 'favorable' }
         ]
       },
       {
@@ -1414,11 +1363,9 @@ export const regulations: Regulation[] = [
         title: 'Tax Regime',
         icon: 'Calculator',
         items: [
-          { label: 'Rental income tax', value: 'Progressive rates 0–35%', details: 'Rental income is taxed at progressive rates: 0% up to €19,500, 20% (€19,501–€28,000), 25% (€28,001–€36,300), 30% (€36,301–€60,000), 35% above €60,000. Deductible expenses: 20% of gross rent allowance, interest, insurance, repairs.', severity: 'neutral' },
+          { label: 'Rental income tax', value: 'Progressive rates 0–35%', details: 'Rental income is taxed at progressive rates: 0% up to €19,500, then 20%, 25%, 30%, 35% above €60,000. Non-domiciled residents exempt from Special Defence Contribution (3% on rent). Deductible expenses include 20% gross rent allowance.', severity: 'neutral' },
           { label: 'Corporate tax', value: '12.5% – among EU\'s lowest', details: 'Cyprus corporate tax rate is 12.5%, one of the lowest in the EU. Holding property through a Cypriot company can be tax-efficient. No tax on gains from disposal of shares. Extensive double taxation treaty network (65+ countries).', severity: 'favorable' },
-          { label: 'Capital gains tax', value: '20% on gains from immovable property', details: 'Capital Gains Tax of 20% applies to gains from sale of immovable property in Cyprus. Lifetime exemptions: €17,086 for any disposal, €85,430 for primary residence (occupied 5+ years), €25,629 for agricultural land.', severity: 'neutral' },
-          { label: 'No annual property tax', value: 'Immovable Property Tax abolished', details: 'Cyprus abolished the annual Immovable Property Tax (IPT) in 2017. Only municipal taxes/fees apply (typically €100–500/year). This makes ongoing holding costs very low.', severity: 'favorable' },
-          { label: 'Non-domicile regime', value: 'No SDC tax for non-doms', details: 'Non-domiciled tax residents of Cyprus are exempt from the Special Defence Contribution (SDC) of 3% on rental income, 17% on interest, and 17% on dividends. Highly attractive for foreign investors establishing Cyprus tax residency.', severity: 'favorable' }
+          { label: 'Capital gains tax', value: '20% on immovable property gains', details: 'Capital Gains Tax of 20% applies to gains from sale of immovable property in Cyprus. Lifetime exemptions: €17,086 for any disposal, €85,430 for primary residence (5+ years). No annual property tax (abolished 2017).', severity: 'neutral' }
         ]
       },
       {
@@ -1437,9 +1384,8 @@ export const regulations: Regulation[] = [
         icon: 'Info',
         items: [
           { label: 'Language barrier', value: 'Very low', details: 'English is very widely spoken in Cyprus due to British colonial history. Many lawyers, agents, and officials work in English. Legal documents can be prepared in English. Greek is the official language but English is used extensively in business.', severity: 'favorable' },
-          { label: 'Property management', value: 'Well-established for expat market', details: 'Property management services are well-developed, catering to the large expat and investor market. Expect 10–15% for long-term management, 20–30% for short-term/holiday rentals. Available in all major cities.', severity: 'favorable' },
-          { label: 'Northern Cyprus', value: 'Avoid – complex legal situation', details: 'Property in Northern Cyprus (occupied by Turkey since 1974) carries extreme legal risk. Greek Cypriot owners retain legal title under international law. EU acquis is suspended in the north. Avoid purchasing property in the occupied area.', severity: 'restrictive' },
-          { label: 'Climate and lifestyle', value: 'Attractive Mediterranean lifestyle', details: 'Cyprus offers 300+ days of sunshine, Mediterranean lifestyle, and good international schools. Popular with British, Russian, and Middle Eastern expats. These factors support long-term rental demand and property values.', severity: 'favorable' }
+          { label: 'Expat-friendly', value: 'Large international community', details: 'Cyprus has a well-established expat community (British, Russian, tech workers). Property management is well-developed. 300+ days of sunshine and Mediterranean lifestyle support long-term rental demand.', severity: 'favorable' },
+          { label: 'Northern Cyprus', value: 'Avoid – complex legal situation', details: 'Property in Northern Cyprus (occupied by Turkey since 1974) carries extreme legal risk. Greek Cypriot owners retain legal title under international law. EU acquis is suspended in the north. Avoid purchasing property in the occupied area.', severity: 'restrictive' }
         ]
       }
     ]

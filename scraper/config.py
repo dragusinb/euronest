@@ -55,9 +55,9 @@ CITIES = {
         "avg_price_sqm": 3200, "avg_rent_sqm": 14,
     },
     "nice": {
-        "name": "Nice", "country": "france", "country_name": "France",
+        "name": "Nice & C\u00f4te d'Azur", "country": "france", "country_name": "France",
         "source": "greenacres",
-        "search_url": "https://www.green-acres.com/en/properties/france/provence-alpes-cote-d-azur",
+        "search_url": "https://www.green-acres.com/en/properties/france/provence-alpes-cote-d-azur/alpes-maritimes",
         "avg_price_sqm": 5200, "avg_rent_sqm": 18,
     },
     "bordeaux": {
@@ -91,61 +91,61 @@ CITIES = {
         "search_url": "https://www.etuovi.com/myytavat-asunnot/oulu",
         "avg_price_sqm": 2100, "avg_rent_sqm": 12,
     },
-    # Spain - use idealista.com (English version)
+    # Spain - use fotocasa.es (generic scraper)
     "madrid": {
         "name": "Madrid", "country": "spain", "country_name": "Spain",
-        "source": "idealista",
-        "search_url": "https://www.idealista.com/en/venta-viviendas/madrid-madrid/",
+        "source": "generic",
+        "search_url": "https://www.fotocasa.es/en/buy/homes/madrid-capital/all-zones/l",
         "avg_price_sqm": 3800, "avg_rent_sqm": 16,
     },
     "barcelona": {
         "name": "Barcelona", "country": "spain", "country_name": "Spain",
-        "source": "idealista",
-        "search_url": "https://www.idealista.com/en/venta-viviendas/barcelona/barcelona/",
+        "source": "generic",
+        "search_url": "https://www.fotocasa.es/en/buy/homes/barcelona-capital/all-zones/l",
         "avg_price_sqm": 4200, "avg_rent_sqm": 17,
     },
     "valencia": {
         "name": "Valencia", "country": "spain", "country_name": "Spain",
-        "source": "idealista",
-        "search_url": "https://www.idealista.com/en/venta-viviendas/valencia/valencia/",
+        "source": "generic",
+        "search_url": "https://www.fotocasa.es/en/buy/homes/valencia-capital/all-zones/l",
         "avg_price_sqm": 2200, "avg_rent_sqm": 10,
     },
     "malaga": {
         "name": "Malaga", "country": "spain", "country_name": "Spain",
-        "source": "idealista",
-        "search_url": "https://www.idealista.com/en/venta-viviendas/malaga-malaga/",
+        "source": "generic",
+        "search_url": "https://www.fotocasa.es/en/buy/homes/malaga-capital/all-zones/l",
         "avg_price_sqm": 2800, "avg_rent_sqm": 12,
     },
-    # Portugal - use idealista.pt (English version)
+    # Portugal - use idealista.pt (generic scraper)
     "lisbon": {
         "name": "Lisbon", "country": "portugal", "country_name": "Portugal",
-        "source": "idealista",
-        "search_url": "https://www.idealista.pt/en/venda/casas/lisboa/lisboa/",
+        "source": "generic",
+        "search_url": "https://www.idealista.pt/en/venda/casas/lisboa/",
         "avg_price_sqm": 4500, "avg_rent_sqm": 18,
     },
     "porto": {
         "name": "Porto", "country": "portugal", "country_name": "Portugal",
-        "source": "idealista",
-        "search_url": "https://www.idealista.pt/en/venda/casas/porto/porto/",
+        "source": "generic",
+        "search_url": "https://www.idealista.pt/en/venda/casas/porto/",
         "avg_price_sqm": 3200, "avg_rent_sqm": 14,
     },
-    # Italy - use idealista.it (English version)
+    # Italy - use immobiliare.it (generic scraper)
     "rome": {
         "name": "Rome", "country": "italy", "country_name": "Italy",
-        "source": "idealista",
-        "search_url": "https://www.idealista.it/en/vendita-case/roma/roma/",
+        "source": "generic",
+        "search_url": "https://www.immobiliare.it/vendita-case/roma/",
         "avg_price_sqm": 3500, "avg_rent_sqm": 14,
     },
     "milan": {
         "name": "Milan", "country": "italy", "country_name": "Italy",
-        "source": "idealista",
-        "search_url": "https://www.idealista.it/en/vendita-case/milano/milano/",
+        "source": "generic",
+        "search_url": "https://www.immobiliare.it/vendita-case/milano/",
         "avg_price_sqm": 4800, "avg_rent_sqm": 20,
     },
     "naples": {
         "name": "Naples", "country": "italy", "country_name": "Italy",
-        "source": "idealista",
-        "search_url": "https://www.idealista.it/en/vendita-case/napoli/napoli/",
+        "source": "generic",
+        "search_url": "https://www.immobiliare.it/vendita-case/napoli/",
         "avg_price_sqm": 2200, "avg_rent_sqm": 10,
     },
     # Germany - use immobilienscout24.de
@@ -357,18 +357,18 @@ CITIES = {
         "search_url": "https://www.bazaraki.com/real-estate/houses-and-flats-sale/?city_id=3",
         "avg_price_sqm": 2500, "avg_rent_sqm": 12,
     },
-    # --- SPAIN (Idealista) ---
-    "madrid": {"name": "Madrid", "country": "spain", "country_name": "Spain", "source": "idealista", "search_url": "https://www.idealista.com/en/venta-viviendas/madrid-madrid/", "avg_price_sqm": 3800, "avg_rent_sqm": 16},
-    "barcelona": {"name": "Barcelona", "country": "spain", "country_name": "Spain", "source": "idealista", "search_url": "https://www.idealista.com/en/venta-viviendas/barcelona/barcelona/", "avg_price_sqm": 4200, "avg_rent_sqm": 17},
-    "valencia": {"name": "Valencia", "country": "spain", "country_name": "Spain", "source": "idealista", "search_url": "https://www.idealista.com/en/venta-viviendas/valencia/valencia/", "avg_price_sqm": 2200, "avg_rent_sqm": 10},
-    "malaga": {"name": "Malaga", "country": "spain", "country_name": "Spain", "source": "idealista", "search_url": "https://www.idealista.com/en/venta-viviendas/malaga-malaga/", "avg_price_sqm": 2800, "avg_rent_sqm": 12},
-    # --- PORTUGAL (Idealista) ---
-    "lisbon": {"name": "Lisbon", "country": "portugal", "country_name": "Portugal", "source": "idealista", "search_url": "https://www.idealista.pt/en/venda/casas/lisboa/lisboa/", "avg_price_sqm": 4500, "avg_rent_sqm": 18},
-    "porto": {"name": "Porto", "country": "portugal", "country_name": "Portugal", "source": "idealista", "search_url": "https://www.idealista.pt/en/venda/casas/porto/porto/", "avg_price_sqm": 3200, "avg_rent_sqm": 14},
-    # --- ITALY (Idealista) ---
-    "rome": {"name": "Rome", "country": "italy", "country_name": "Italy", "source": "idealista", "search_url": "https://www.idealista.it/en/vendita-case/roma/roma/", "avg_price_sqm": 3500, "avg_rent_sqm": 14},
-    "milan": {"name": "Milan", "country": "italy", "country_name": "Italy", "source": "idealista", "search_url": "https://www.idealista.it/en/vendita-case/milano/milano/", "avg_price_sqm": 4800, "avg_rent_sqm": 20},
-    "naples": {"name": "Naples", "country": "italy", "country_name": "Italy", "source": "idealista", "search_url": "https://www.idealista.it/en/vendita-case/napoli/napoli/", "avg_price_sqm": 2200, "avg_rent_sqm": 10},
+    # --- SPAIN (Fotocasa) ---
+    "madrid": {"name": "Madrid", "country": "spain", "country_name": "Spain", "source": "generic", "search_url": "https://www.fotocasa.es/en/buy/homes/madrid-capital/all-zones/l", "avg_price_sqm": 3800, "avg_rent_sqm": 16},
+    "barcelona": {"name": "Barcelona", "country": "spain", "country_name": "Spain", "source": "generic", "search_url": "https://www.fotocasa.es/en/buy/homes/barcelona-capital/all-zones/l", "avg_price_sqm": 4200, "avg_rent_sqm": 17},
+    "valencia": {"name": "Valencia", "country": "spain", "country_name": "Spain", "source": "generic", "search_url": "https://www.fotocasa.es/en/buy/homes/valencia-capital/all-zones/l", "avg_price_sqm": 2200, "avg_rent_sqm": 10},
+    "malaga": {"name": "Malaga", "country": "spain", "country_name": "Spain", "source": "generic", "search_url": "https://www.fotocasa.es/en/buy/homes/malaga-capital/all-zones/l", "avg_price_sqm": 2800, "avg_rent_sqm": 12},
+    # --- PORTUGAL (Idealista, generic scraper) ---
+    "lisbon": {"name": "Lisbon", "country": "portugal", "country_name": "Portugal", "source": "generic", "search_url": "https://www.idealista.pt/en/venda/casas/lisboa/", "avg_price_sqm": 4500, "avg_rent_sqm": 18},
+    "porto": {"name": "Porto", "country": "portugal", "country_name": "Portugal", "source": "generic", "search_url": "https://www.idealista.pt/en/venda/casas/porto/", "avg_price_sqm": 3200, "avg_rent_sqm": 14},
+    # --- ITALY (Immobiliare, generic scraper) ---
+    "rome": {"name": "Rome", "country": "italy", "country_name": "Italy", "source": "generic", "search_url": "https://www.immobiliare.it/vendita-case/roma/", "avg_price_sqm": 3500, "avg_rent_sqm": 14},
+    "milan": {"name": "Milan", "country": "italy", "country_name": "Italy", "source": "generic", "search_url": "https://www.immobiliare.it/vendita-case/milano/", "avg_price_sqm": 4800, "avg_rent_sqm": 20},
+    "naples": {"name": "Naples", "country": "italy", "country_name": "Italy", "source": "generic", "search_url": "https://www.immobiliare.it/vendita-case/napoli/", "avg_price_sqm": 2200, "avg_rent_sqm": 10},
     # --- GERMANY (ImmobilienScout24) ---
     "berlin": {"name": "Berlin", "country": "germany", "country_name": "Germany", "source": "immoscout", "search_url": "https://www.immobilienscout24.de/Suche/de/berlin/berlin/wohnung-kaufen", "avg_price_sqm": 5000, "avg_rent_sqm": 14},
     "munich": {"name": "Munich", "country": "germany", "country_name": "Germany", "source": "immoscout", "search_url": "https://www.immobilienscout24.de/Suche/de/bayern/muenchen-kreisfreie-stadt/wohnung-kaufen", "avg_price_sqm": 8500, "avg_rent_sqm": 20},

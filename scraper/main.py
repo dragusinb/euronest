@@ -12,12 +12,13 @@ import sys
 import os
 import argparse
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from config import CITIES, get_watched_cities, LISTINGS_PER_CITY, LOG_FILE
+from config import CITIES, get_watched_cities, LISTINGS_PER_CITY, LOG_FILE, OPENAI_API_KEY
+from translator import translate_listings
 from models import PropertyListing
 from output import write_all_listings, read_existing_listings, OUTPUT_DIR
 from sources.spitogatos import SpitogatosScraper
@@ -93,6 +94,7 @@ def scrape_city(city_id: str) -> List[dict]:
     try:
         logger.info(f"Scraping {city_config['name']} via {source}...")
         raw_listings = scraper.scrape(city_config)
+        raw_listings = translate_listings(raw_listings, OPENAI_API_KEY)
     except Exception as e:
         logger.error(f"Scraper crashed for {city_config['name']}: {e}")
         raw_listings = []
@@ -102,6 +104,11 @@ def scrape_city(city_id: str) -> List[dict]:
     rejected = len(raw_listings) - len(valid)
     if rejected:
         logger.info(f"  Rejected {rejected} listings without valid source URL")
+
+    # Add crawl timestamp
+    crawl_time = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    for l in valid:
+        l["lastUpdated"] = crawl_time
 
     # Deduplicate by source URL
     seen_urls = set()
