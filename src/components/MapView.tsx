@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { cities, getCitiesByCountry } from '../data/cities';
@@ -7,7 +7,6 @@ import { formatPrice, formatYield, yieldClass, yieldColor, demandColor } from '.
 import { useNavigate } from 'react-router-dom';
 import type { City } from '../types';
 
-// Fix Leaflet default marker icon issue
 import 'leaflet/dist/leaflet.css';
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -15,10 +14,6 @@ L.Icon.Default.mergeOptions({
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
 });
-
-// Center on Germany, zoom 4 shows all of Europe
-const EUROPE_CENTER: [number, number] = [51.2, 10.5];
-const EUROPE_ZOOM = 4;
 
 function createYieldIcon(city: City) {
   const cls = yieldClass(city.grossYield);
@@ -30,17 +25,35 @@ function createYieldIcon(city: City) {
   });
 }
 
-function MapController({ selectedCountry }: { selectedCountry: string | null }) {
+// This component handles ALL map positioning after the map is ready
+function MapPositioner({ selectedCountry }: { selectedCountry: string | null }) {
   const map = useMap();
+  const initialized = useRef(false);
 
+  // On first render: fix size then go to Europe
   useEffect(() => {
+    if (!initialized.current) {
+      initialized.current = true;
+      // Wait for layout to settle, then force correct size and position
+      setTimeout(() => {
+        map.invalidateSize();
+        map.setView([51.0, 10.0], 4, { animate: false });
+      }, 100);
+    }
+  }, [map]);
+
+  // When country selection changes
+  useEffect(() => {
+    if (!initialized.current) return;
+
     if (selectedCountry) {
       const country = countries.find(c => c.id === selectedCountry);
       if (country) {
-        map.flyTo(country.center, country.zoom, { duration: 1.2 });
+        map.flyTo(country.center, country.zoom, { duration: 1 });
       }
     } else {
-      map.setView(EUROPE_CENTER, EUROPE_ZOOM, { animate: true });
+      // Back to full Europe: Germany center, zoom 4
+      map.flyTo([51.0, 10.0], 4, { duration: 1 });
     }
   }, [selectedCountry, map]);
 
@@ -62,17 +75,20 @@ export default function MapView({ selectedCountry, onSelectCity }: MapViewProps)
 
   return (
     <MapContainer
-      center={EUROPE_CENTER}
-      zoom={EUROPE_ZOOM}
+      center={[51.0, 10.0]}
+      zoom={4}
       className="h-full w-full rounded-lg"
       scrollWheelZoom={true}
       style={{ height: '100%', minHeight: '500px' }}
+      maxBounds={[[-10, -40], [80, 60]]}
+      minZoom={3}
+      maxZoom={18}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <MapController selectedCountry={selectedCountry} />
+      <MapPositioner selectedCountry={selectedCountry} />
 
       {visibleCities.map(city => (
         <Marker
