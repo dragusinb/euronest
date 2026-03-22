@@ -1,8 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Map, BarChart3, ScrollText, Scale, Search, LayoutDashboard, TrendingUp, Moon, Sun, Menu, X } from 'lucide-react';
 import { useUIStore } from '../store';
+import { useAccessStore } from '../store/accessStore';
 import { useState } from 'react';
 import DataFreshness from './DataFreshness';
+import AccessCodeModal from './AccessCodeModal';
 
 const navItems = [
   { to: '/explore', label: 'Explore', icon: Map },
@@ -18,6 +20,8 @@ export default function Navbar() {
   const location = useLocation();
   const { darkMode, toggleDarkMode } = useUIStore();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [showAccessModal, setShowAccessModal] = useState(false);
+  const isPremium = useAccessStore(s => s.isPremium);
 
   const isLanding = location.pathname === '/';
 
@@ -29,6 +33,11 @@ export default function Navbar() {
         </div>
         <span className="text-xl font-bold text-gray-900">EuroNest</span>
         <span className="text-xs text-gray-500 hidden sm:inline ml-1">AI Investment Advisor</span>
+        {isPremium ? (
+          <span className="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-semibold hidden sm:inline">PRO</span>
+        ) : (
+          <button onClick={() => setShowAccessModal(true)} className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full font-medium hover:bg-blue-700 cursor-pointer border-0 hidden sm:inline">Unlock Full Access</button>
+        )}
         <div className="hidden sm:block ml-2">
           <DataFreshness />
         </div>
@@ -100,6 +109,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
+      <AccessCodeModal isOpen={showAccessModal} onClose={() => setShowAccessModal(false)} />
     </nav>
   );
 }

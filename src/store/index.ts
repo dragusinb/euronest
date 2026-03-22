@@ -151,3 +151,5 @@ export const useCacheStore = create<CacheState>()(
     { name: 'euronest-cache' }
   )
 );
+
+export { useAccessStore } from './accessStore';

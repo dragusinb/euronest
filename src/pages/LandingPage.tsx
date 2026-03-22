@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Bot,
   Search,
@@ -10,10 +11,16 @@ import {
   TrendingUp,
   MapPin,
   Sparkles,
+  Crown,
+  Gift,
+  Check,
+  Lock,
 } from 'lucide-react';
 import { cities } from '../data/cities';
 import { countries } from '../data/countries';
 import { formatPrice, formatYield } from '../utils/formatters';
+import { validateAccessCode } from '../utils/accessCodes';
+import { useAccessStore } from '../store/accessStore';
 import Badge from '../components/ui/Badge';
 
 /* ------------------------------------------------------------------ */
@@ -86,13 +93,13 @@ function Hero() {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            to="/explore"
+          <a
+            href="#pricing"
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-blue-700 font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-blue-50 transition-all text-lg"
           >
             Explore Properties
             <ArrowRight size={20} />
-          </Link>
+          </a>
           <Link
             to="/about"
             className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-all text-lg"
@@ -110,7 +117,7 @@ function StatsBar() {
     { value: '3', label: 'Countries' },
     { value: '13+', label: 'Cities' },
     { value: 'AI', label: 'Powered Analysis' },
-    { value: 'Free', label: 'To Use' },
+    { value: '150 RON', label: 'Premium Access' },
   ];
 
   return (
@@ -259,6 +266,206 @@ function FeaturedCities() {
   );
 }
 
+/* ------------------------------------------------------------------ */
+/*  Pricing Section                                                   */
+/* ------------------------------------------------------------------ */
+
+const includedFeatures = [
+  'Interactive map with 55+ European cities',
+  'Real property listings updated daily',
+  'AI Investment Advisor (unlimited)',
+  'AI Property Analysis & Buying Guides',
+  'Regulation guides for 23 countries',
+  'Yield calculator & ROI projections',
+  'Market insights & comparison tools',
+  'Portfolio tracker',
+];
+
+function PricingSection() {
+  const navigate = useNavigate();
+  const activate = useAccessStore(s => s.activate);
+
+  const [code, setCode] = useState('');
+  const [codeError, setCodeError] = useState('');
+  const [codeSuccess, setCodeSuccess] = useState(false);
+
+  const [lightlyCode, setLightlyCode] = useState('');
+  const [lightlyError, setLightlyError] = useState('');
+  const [lightlySuccess, setLightlySuccess] = useState(false);
+
+  const stripeLink = import.meta.env.VITE_STRIPE_PAYMENT_LINK || '#';
+
+  const handleActivate = async (
+    inputCode: string,
+    setError: (v: string) => void,
+    setSuccess: (v: boolean) => void,
+  ) => {
+    setError('');
+    setSuccess(false);
+
+    if (!inputCode.trim()) {
+      setError('Please enter an access code.');
+      return;
+    }
+
+    const result = await validateAccessCode(inputCode.trim());
+    if (result) {
+      setSuccess(true);
+      activate(result);
+      setTimeout(() => navigate('/explore'), 600);
+    } else {
+      setError('Invalid access code. Please check and try again.');
+    }
+  };
+
+  return (
+    <section id="pricing" className="bg-white">
+      <div className="max-w-5xl mx-auto px-6 py-20">
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Unlock Full Access to EuroNest
+          </h2>
+          <p className="mt-3 text-gray-500 text-lg max-w-2xl mx-auto">
+            Get AI-powered investment intelligence across 23 European countries
+          </p>
+        </div>
+
+        {/* Two cards */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          {/* Card 1 — Lightly.ro Subscribers */}
+          <div className="relative rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow p-8 flex flex-col">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600">
+                <Gift size={22} />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">Lightly.ro Subscribers</h3>
+            </div>
+
+            <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 text-sm font-bold rounded-full w-fit mb-4">
+              FREE
+            </span>
+
+            <p className="text-gray-500 text-sm leading-relaxed mb-6">
+              Already managing properties with Lightly.ro? You get full EuroNest access included in your subscription.
+            </p>
+
+            {/* Inline code form */}
+            <div className="mt-auto">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={lightlyCode}
+                  onChange={(e) => {
+                    setLightlyCode(e.target.value);
+                    setLightlyError('');
+                    setLightlySuccess(false);
+                  }}
+                  placeholder="Enter your Lightly.ro code"
+                  className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                />
+                <button
+                  onClick={() => handleActivate(lightlyCode, setLightlyError, setLightlySuccess)}
+                  className="px-5 py-2.5 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-colors text-sm whitespace-nowrap"
+                >
+                  Activate
+                </button>
+              </div>
+              {lightlyError && (
+                <p className="mt-2 text-sm text-red-600">{lightlyError}</p>
+              )}
+              {lightlySuccess && (
+                <p className="mt-2 text-sm text-emerald-600 font-medium">
+                  Access activated! Redirecting...
+                </p>
+              )}
+
+              <p className="mt-4 text-sm text-gray-400">
+                Don't have Lightly.ro?{' '}
+                <a
+                  href="https://lightly.ro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-600 hover:text-emerald-700 font-medium"
+                >
+                  Learn more &rarr;
+                </a>
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2 — Direct Purchase */}
+          <div className="relative rounded-2xl border-2 border-blue-200 bg-white shadow-md hover:shadow-lg transition-shadow p-8 flex flex-col">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-blue-50 text-blue-600">
+                <Crown size={22} />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">One-Time Purchase</h3>
+            </div>
+
+            <div className="mb-6">
+              <span className="text-4xl font-bold text-gray-900">150 RON</span>
+              <span className="ml-2 text-gray-400 text-sm">~&euro;30 &middot; Lifetime access</span>
+            </div>
+
+            <ul className="space-y-3 mb-8 flex-1">
+              {includedFeatures.map((feature) => (
+                <li key={feature} className="flex items-start gap-2.5 text-sm text-gray-600">
+                  <Check size={16} className="mt-0.5 text-blue-600 flex-shrink-0" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={stripeLink}
+              className="block w-full text-center px-6 py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors text-lg shadow-lg shadow-blue-200"
+            >
+              Buy Now &mdash; 150 RON
+            </a>
+            <p className="mt-3 text-xs text-gray-400 text-center">
+              <Lock size={12} className="inline -mt-0.5 mr-1" />
+              Secure payment via Stripe. Instant access.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom access code entry */}
+        <div className="max-w-lg mx-auto text-center">
+          <p className="text-gray-500 text-sm font-medium mb-3">Already have an access code?</p>
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={code}
+              onChange={(e) => {
+                setCode(e.target.value);
+                setCodeError('');
+                setCodeSuccess(false);
+              }}
+              placeholder="Enter access code"
+              className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+            <button
+              onClick={() => handleActivate(code, setCodeError, setCodeSuccess)}
+              className="px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors text-sm"
+            >
+              Activate
+            </button>
+          </div>
+          {codeError && (
+            <p className="mt-2 text-sm text-red-600">{codeError}</p>
+          )}
+          {codeSuccess && (
+            <p className="mt-2 text-sm text-emerald-600 font-medium">
+              Access activated! Redirecting...
+            </p>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HowItWorks() {
   const steps = [
     {
@@ -323,13 +530,22 @@ function CTASection() {
         <p className="mt-4 text-blue-100 text-lg max-w-xl mx-auto">
           Join investors using AI-powered insights to make smarter real estate decisions across Europe.
         </p>
-        <Link
-          to="/explore"
-          className="mt-8 inline-flex items-center gap-2 px-8 py-3.5 bg-white text-blue-700 font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-blue-50 transition-all text-lg"
-        >
-          Get Started Free
-          <ArrowRight size={20} />
-        </Link>
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            to="/explore"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-blue-700 font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-blue-50 transition-all text-lg"
+          >
+            Explore Free Preview
+            <ArrowRight size={20} />
+          </Link>
+          <a
+            href="#pricing"
+            className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-all text-lg"
+          >
+            Unlock Full Access &mdash; 150 RON
+            <Lock size={18} />
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -401,6 +617,7 @@ export default function LandingPage() {
       <StatsBar />
       <FeaturesGrid />
       <FeaturedCities />
+      <PricingSection />
       <HowItWorks />
       <CTASection />
       <Footer />
