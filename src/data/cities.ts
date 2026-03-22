@@ -30,7 +30,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Second largest city, university town with strong student rental demand. Lower entry prices than Athens with growing tourism. Excellent food scene attracting visitors.',
     tourismScore: 7,
-    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=400&q=80&crop=entropy&cs=tinysrgb&fit=crop&h=300'
   },
   {
     id: 'heraklion',
@@ -45,7 +45,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Crete\'s capital and gateway to Greece\'s largest island. Strong seasonal tourism with potential for year-round rentals. Archaeological sites and beaches drive demand.',
     tourismScore: 9,
-    imageUrl: 'https://images.unsplash.com/photo-1586861256632-6ea4b3854708?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400'
   },
   {
     id: 'rhodes',
@@ -169,7 +169,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Finland\'s fastest growing city. Major university town (2 universities). New tramway boosting certain neighborhoods. Lower entry price than Helsinki with strong yields.',
     tourismScore: 5,
-    imageUrl: 'https://images.unsplash.com/photo-1569949237615-e2defbfc3906?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?w=400&q=80&crop=entropy&cs=tinysrgb&fit=crop&h=300'
   },
   {
     id: 'turku',
@@ -184,7 +184,7 @@ export const cities: City[] = [
     demandLevel: 'medium',
     description: 'Former capital and oldest city. University city with steady student demand. Shipyard and tech industries. Gateway to the Archipelago Sea \u2013 growing tourism potential.',
     tourismScore: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1570103505249-e4a5497c01fb?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?w=400&q=80&crop=entropy&cs=tinysrgb&fit=crop&h=300'
   },
   {
     id: 'oulu',
@@ -246,7 +246,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Fast-growing coastal city attracting remote workers and expats with affordable living costs. Strong rental yields and lower entry prices than Madrid or Barcelona make it a compelling investment choice.',
     tourismScore: 8,
-    imageUrl: 'https://images.unsplash.com/photo-1599302592205-d7d683b34d61?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1524396309943-e03f5249f002?w=400'
   },
   {
     id: 'malaga',
@@ -261,7 +261,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Costa del Sol capital transformed into a tech and cultural destination with Google\'s cybersecurity center. Year-round sunshine and strong tourism drive consistent short-term rental demand.',
     tourismScore: 9,
-    imageUrl: 'https://images.unsplash.com/photo-1564221710304-0b37c8b4c4c8?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=400'
   },
 
   // Portugal
@@ -387,7 +387,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Major port city with HafenCity, Europe\'s largest inner-city development project. Strong media and logistics sectors drive professional rental demand across the city.',
     tourismScore: 7,
-    imageUrl: 'https://images.unsplash.com/photo-1567096027889-7600865cfa56?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=400'
   },
   {
     id: 'frankfurt',
@@ -449,7 +449,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Seat of the Dutch government and international courts, attracting diplomats and expat professionals. Beachside Scheveningen district adds tourism appeal while the city center offers steady governmental demand.',
     tourismScore: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1580996758712-3c8e4033e961?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=400'
   },
 
   // Belgium
@@ -481,7 +481,7 @@ export const cities: City[] = [
     demandLevel: 'medium',
     description: 'Diamond capital and major port city with a thriving fashion and design scene. Lower prices than Brussels combined with strong cultural tourism make it a solid secondary market investment.',
     tourismScore: 7,
-    imageUrl: 'https://images.unsplash.com/photo-1588974269162-4c0ed8e66560?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1533669955142-6a73332af4db?w=400'
   },
 
   // Austria
@@ -498,7 +498,7 @@ export const cities: City[] = [
     demandLevel: 'very-high',
     description: 'Consistently ranked the world\'s most livable city with strong demand from international organizations and students. Regulated rents in Altbau buildings require knowledge of local tenancy law for optimal returns.',
     tourismScore: 9,
-    imageUrl: 'https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400'
   },
   {
     id: 'graz',
@@ -513,7 +513,7 @@ export const cities: City[] = [
     demandLevel: 'medium',
     description: 'Austria\'s second city and a UNESCO Creative City of Design with a large student population. More affordable than Vienna with good rental demand driven by four major universities.',
     tourismScore: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1576719090351-e51e4ed0a3e0?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400'
   },
 
   // Ireland
@@ -562,7 +562,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Poland\'s cultural capital and top tourist destination with a UNESCO-listed old town. Large student population and growing IT sector provide dual rental demand streams year-round.',
     tourismScore: 9,
-    imageUrl: 'https://images.unsplash.com/photo-1574069602239-5c1ead3ac4dd?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1520440229-6469a149ac59?w=400'
   },
   {
     id: 'wroclaw',
@@ -577,7 +577,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Vibrant university city with a thriving IT outsourcing industry attracting international companies. Affordable entry prices and strong yields make it one of Poland\'s most compelling investment markets.',
     tourismScore: 7,
-    imageUrl: 'https://images.unsplash.com/photo-1573158895532-168dd22ce3c7?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1541849546-216549ae216d?w=400'
   },
 
   // Czech Republic
@@ -609,7 +609,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Czech Republic\'s second city with a major tech and university ecosystem. More affordable than Prague with better yields and growing demand from IT professionals and international students.',
     tourismScore: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1605539085968-7f4e5e29a49f?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=400'
   },
 
   // Hungary
@@ -658,7 +658,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Romania\'s Silicon Valley with a thriving IT community and major university hub. Rapidly growing population and limited supply have driven consistent price appreciation alongside strong rental yields.',
     tourismScore: 5,
-    imageUrl: 'https://images.unsplash.com/photo-1560408634-de91947e0443?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=400'
   },
 
   // Croatia
@@ -675,7 +675,7 @@ export const cities: City[] = [
     demandLevel: 'medium',
     description: 'Croatia\'s capital with a growing economy buoyed by recent eurozone accession. Affordable prices and improving infrastructure make it an undervalued market compared to coastal Croatian cities.',
     tourismScore: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1561629625-ecf94283cddd?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=400'
   },
   {
     id: 'split',
@@ -690,7 +690,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Dalmatian coast gem with a UNESCO-listed Diocletian\'s Palace at its heart. Exceptional summer tourism yields and a growing year-round economy driven by IT and maritime industries.',
     tourismScore: 9,
-    imageUrl: 'https://images.unsplash.com/photo-1555990538-1e15a14e937d?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1543168256-418811576931?w=400'
   },
   {
     id: 'dubrovnik',
@@ -754,7 +754,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Sweden\'s second city and a major industrial hub home to Volvo and SKF. More affordable than Stockholm with strong demand from the automotive and maritime sectors and growing tourism.',
     tourismScore: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1568291217-f1834e312a81?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1549421263-5ec394a5ad4c?w=400'
   },
 
   // Norway
@@ -788,7 +788,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Europe\'s most digitally advanced capital with Skype\'s birthplace and a thriving e-residency program. Medieval old town tourism combined with a booming tech sector creates diverse rental demand.',
     tourismScore: 7,
-    imageUrl: 'https://images.unsplash.com/photo-1560524080-5765e2569e47?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=400'
   },
 
   // Latvia
@@ -805,7 +805,7 @@ export const cities: City[] = [
     demandLevel: 'medium',
     description: 'Art Nouveau capital with some of the highest gross yields among EU capitals. Low entry prices and a growing shared services sector attract budget-conscious investors seeking cash flow.',
     tourismScore: 7,
-    imageUrl: 'https://images.unsplash.com/photo-1591194025758-64742e4f8bb6?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400'
   },
 
   // Lithuania
@@ -822,7 +822,7 @@ export const cities: City[] = [
     demandLevel: 'high',
     description: 'Fast-growing Baltic capital with a booming fintech sector and the largest baroque old town in Central Europe. Strong yields and EU membership make it an attractive emerging market play.',
     tourismScore: 7,
-    imageUrl: 'https://images.unsplash.com/photo-1573158895532-168dd22ce3c7?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1541849546-216549ae216d?w=400'
   },
 
   // Cyprus
@@ -854,7 +854,7 @@ export const cities: City[] = [
     demandLevel: 'medium',
     description: 'UNESCO World Heritage coastal city popular with British retirees and holidaymakers. Lower prices than Limassol with strong seasonal tourism yields and a relaxed Mediterranean lifestyle appeal.',
     tourismScore: 8,
-    imageUrl: 'https://images.unsplash.com/photo-1586861256632-6ea4b3854708?w=400'
+    imageUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400'
   }
 ];
 
