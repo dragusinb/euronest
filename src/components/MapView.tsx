@@ -25,26 +25,36 @@ function createYieldIcon(city: City) {
   });
 }
 
-// This component handles ALL map positioning after the map is ready
+// This component handles ALL map positioning
 function MapPositioner({ selectedCountry }: { selectedCountry: string | null }) {
   const map = useMap();
   const initialized = useRef(false);
+  const prevCountry = useRef<string | null>(null);
 
-  // On first render: fix size then go to Europe
+  // Force correct position on mount - multiple attempts to handle layout timing
   useEffect(() => {
-    if (!initialized.current) {
+    const fixPosition = () => {
+      map.invalidateSize({ animate: false });
+      map.setView([51.0, 10.0], 4, { animate: false });
+    };
+
+    // Try immediately, then again after layout settles
+    fixPosition();
+    const t1 = setTimeout(fixPosition, 200);
+    const t2 = setTimeout(fixPosition, 500);
+    const t3 = setTimeout(() => {
+      fixPosition();
       initialized.current = true;
-      // Wait for layout to settle, then force correct size and position
-      setTimeout(() => {
-        map.invalidateSize();
-        map.setView([51.0, 10.0], 4, { animate: false });
-      }, 100);
-    }
+    }, 1000);
+
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [map]);
 
-  // When country selection changes
+  // Handle country selection changes (only after init)
   useEffect(() => {
     if (!initialized.current) return;
+    if (selectedCountry === prevCountry.current) return;
+    prevCountry.current = selectedCountry;
 
     if (selectedCountry) {
       const country = countries.find(c => c.id === selectedCountry);
@@ -52,7 +62,6 @@ function MapPositioner({ selectedCountry }: { selectedCountry: string | null }) 
         map.flyTo(country.center, country.zoom, { duration: 1 });
       }
     } else {
-      // Back to full Europe: Germany center, zoom 4
       map.flyTo([51.0, 10.0], 4, { duration: 1 });
     }
   }, [selectedCountry, map]);
@@ -77,9 +86,9 @@ export default function MapView({ selectedCountry, onSelectCity }: MapViewProps)
     <MapContainer
       center={[51.0, 10.0]}
       zoom={4}
-      className="h-full w-full rounded-lg"
+      className="w-full rounded-lg"
       scrollWheelZoom={true}
-      style={{ height: '100%', minHeight: '500px' }}
+      style={{ height: 'calc(100vh - 61px)' }}
       maxBounds={[[-10, -40], [80, 60]]}
       minZoom={3}
       maxZoom={18}
