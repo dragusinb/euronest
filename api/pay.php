@@ -15,13 +15,19 @@ define('MOBILPAY_URL', 'https://secure.mobilpay.ro');
 define('CERT_FILE', '/var/www/lightly2/var/resources/external_services/mobilpay_certs/production.cer');
 define('KEY_FILE', '/var/www/lightly2/var/resources/external_services/mobilpay_certs/production.key');
 define('LOG_FILE', __DIR__ . '/payment_log.txt');
-define('PAYMENT_AMOUNT', 150.00);
 define('PAYMENT_CURRENCY', 'RON');
-define('PAYMENT_DESCRIPTION', 'EuroNest Premium - Full European Property Investment Access');
 define('RETURN_BASE_URL', 'http://37.60.230.208/euronest');
 define('CONFIRM_URL', 'https://www.lightly.ro/euronest/pay.php?action=confirm');
 define('RETURN_URL', 'https://www.lightly.ro/euronest/pay.php?action=return');
 define('ACCESS_CODE', 'EURONEST-PREMIUM-150RON');
+
+// Payment types
+$PAYMENT_TYPES = [
+    'premium' => ['amount' => 150.00, 'desc' => 'EuroNest Premium - Full Access', 'grants_access' => true],
+    'tip50'   => ['amount' => 50.00,  'desc' => 'EuroNest - Thank the Devs (Coffee)', 'grants_access' => false],
+    'tip100'  => ['amount' => 100.00, 'desc' => 'EuroNest - Thank the Devs (Lunch)', 'grants_access' => false],
+    'tip150'  => ['amount' => 150.00, 'desc' => 'EuroNest - Thank the Devs (Dinner)', 'grants_access' => false],
+];
 
 function logPayment($message) {
     $timestamp = date('Y-m-d H:i:s');
@@ -49,9 +55,15 @@ switch ($action) {
  * Start payment: generate encrypted MobilPay request and auto-submit form
  */
 function handleStart() {
-    $orderID = 'ENEST-' . time() . '-' . rand(1000, 9999);
+    global $PAYMENT_TYPES;
+    $type = $_GET['type'] ?? 'premium';
+    $paymentInfo = $PAYMENT_TYPES[$type] ?? $PAYMENT_TYPES['premium'];
+    $amount = $paymentInfo['amount'];
+    $description = $paymentInfo['desc'];
 
-    logPayment("START: Order $orderID, Amount " . PAYMENT_AMOUNT . " " . PAYMENT_CURRENCY);
+    $orderID = 'ENEST-' . strtoupper($type) . '-' . time() . '-' . rand(1000, 9999);
+
+    logPayment("START: Order $orderID, Type=$type, Amount $amount " . PAYMENT_CURRENCY);
 
     // Build XML request
     $xml = new DOMDocument('1.0', 'utf-8');
@@ -64,9 +76,9 @@ function handleStart() {
     $orderNode->appendChild($xml->createElement('signature', MOBILPAY_API_SIGNATURE));
 
     $invoiceNode = $xml->createElement('invoice');
-    $invoiceNode->setAttribute('amount', number_format(PAYMENT_AMOUNT, 2, '.', ''));
+    $invoiceNode->setAttribute('amount', number_format($amount, 2, '.', ''));
     $invoiceNode->setAttribute('currency', PAYMENT_CURRENCY);
-    $invoiceNode->appendChild($xml->createElement('details', PAYMENT_DESCRIPTION));
+    $invoiceNode->appendChild($xml->createElement('details', $description));
     $orderNode->appendChild($invoiceNode);
 
     $urlNode = $xml->createElement('url');
@@ -146,7 +158,8 @@ function handleStart() {
         <div class="card">
             <div class="spinner"></div>
             <h2>Redirecting to Payment</h2>
-            <div class="amount"><?= number_format(PAYMENT_AMOUNT, 0) ?> RON</div>
+            <div class="amount"><?= number_format($amount, 0) ?> RON</div>
+            <p style="margin-bottom:8px;font-size:13px;opacity:0.9"><?= htmlspecialchars($description) ?></p>
             <p>You will be redirected to Netopia's secure payment page...</p>
         </div>
 
@@ -273,9 +286,18 @@ function handleReturn() {
             $errorCode = $errorNode ? $errorNode->getAttribute('code') : '99';
 
             if ($errorCode === '0' || $errorCode === '') {
-                // Payment confirmed — redirect with access code
-                logPayment("RETURN: Payment confirmed, redirecting with access code");
-                header('Location: ' . RETURN_BASE_URL . '/#/?code=' . ACCESS_CODE . '&purchased=1');
+                // Payment confirmed
+                $orderNode2 = $xml->getElementsByTagName('order')->item(0);
+                $oid = $orderNode2 ? $orderNode2->getAttribute('id') : '';
+                $isPremium = strpos($oid, 'PREMIUM') !== false;
+
+                if ($isPremium) {
+                    logPayment("RETURN: Premium payment confirmed, redirecting with access code");
+                    header('Location: ' . RETURN_BASE_URL . '/#/?code=' . ACCESS_CODE . '&purchased=1');
+                } else {
+                    logPayment("RETURN: Tip payment confirmed, redirecting with thanks");
+                    header('Location: ' . RETURN_BASE_URL . '/#/?thanked=1');
+                }
                 exit;
             } else {
                 $errorMessage = $errorNode ? $errorNode->nodeValue : 'Unknown error';

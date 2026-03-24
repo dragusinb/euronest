@@ -466,6 +466,43 @@ function PricingSection() {
   );
 }
 
+function ThankTheDevs() {
+  const tips = [
+    { type: 'tip50', amount: '50 RON', emoji: '\u2615', label: 'Buy us a coffee', desc: 'Fuel the late-night coding sessions' },
+    { type: 'tip100', amount: '100 RON', emoji: '\u{1F355}', label: 'Buy us lunch', desc: 'Keep the team fed and motivated' },
+    { type: 'tip150', amount: '150 RON', emoji: '\u{1F37D}\u{FE0F}', label: 'Buy us dinner', desc: 'You\'re a legend, seriously' },
+  ];
+
+  return (
+    <section className="bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-4xl mx-auto px-6 py-16 text-center">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Love EuroNest? Thank the Devs</h2>
+        <p className="text-gray-600 mb-10">Built with passion by a small team. Your support keeps us going.</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {tips.map(tip => (
+            <a
+              key={tip.type}
+              href={`https://www.lightly.ro/euronest/pay.php?action=start&type=${tip.type}`}
+              className="group bg-white rounded-2xl border border-gray-200 p-6 no-underline hover:border-blue-300 hover:shadow-lg transition-all"
+            >
+              <div className="text-4xl mb-3">{tip.emoji}</div>
+              <div className="text-2xl font-bold text-gray-900 mb-1">{tip.amount}</div>
+              <div className="text-sm font-semibold text-blue-600 mb-2">{tip.label}</div>
+              <p className="text-xs text-gray-500">{tip.desc}</p>
+              <div className="mt-4 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                Send Thanks
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <p className="text-xs text-gray-400 mt-6">Secure payment via Netopia. Tips are non-refundable and do not grant platform access.</p>
+      </div>
+    </section>
+  );
+}
+
 function HowItWorks() {
   const steps = [
     {
@@ -619,6 +656,7 @@ export default function LandingPage() {
       <FeaturedCities />
       <PricingSection />
       <HowItWorks />
+      <ThankTheDevs />
       <CTASection />
       <Footer />
     </div>
