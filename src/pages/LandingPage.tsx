@@ -293,7 +293,7 @@ function PricingSection() {
   const [lightlyError, setLightlyError] = useState('');
   const [lightlySuccess, setLightlySuccess] = useState(false);
 
-  const stripeLink = import.meta.env.VITE_STRIPE_PAYMENT_LINK || '#';
+  const paymentLink = 'https://www.lightly.ro/euronest/pay.php?action=start';
 
   const handleActivate = async (
     inputCode: string,
@@ -418,7 +418,7 @@ function PricingSection() {
             </ul>
 
             <a
-              href={stripeLink}
+              href={paymentLink}
               className="block w-full text-center px-6 py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors text-lg shadow-lg shadow-blue-200"
             >
               Buy Now &mdash; 150 RON
