@@ -159,8 +159,8 @@ const features = [
   },
   {
     icon: <Briefcase size={24} />,
-    title: 'Portfolio Tracker',
-    desc: 'Save properties and track your investments',
+    title: 'Market Insights',
+    desc: 'AI-generated reports and hot market indicators',
   },
   {
     icon: <Shield size={24} />,
@@ -278,7 +278,7 @@ const includedFeatures = [
   'Regulation guides for 23 countries',
   'Yield calculator & ROI projections',
   'Market insights & comparison tools',
-  'Portfolio tracker',
+  'Step-by-step buying guides for expats',
 ];
 
 function PricingSection() {
@@ -483,8 +483,8 @@ function HowItWorks() {
     {
       num: '3',
       icon: <Briefcase size={28} />,
-      title: 'Build Portfolio',
-      desc: 'Save properties, compare investments, and track your portfolio.',
+      title: 'Invest Smart',
+      desc: 'Get AI buying guides, action plans, and ROI projections for any property.',
     },
   ];
 

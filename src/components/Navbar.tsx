@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Map, BarChart3, ScrollText, Scale, Search, LayoutDashboard, TrendingUp, Moon, Sun, Menu, X } from 'lucide-react';
+import { Map, BarChart3, ScrollText, Scale, Search, TrendingUp, Moon, Sun, Menu, X } from 'lucide-react';
 import { useUIStore } from '../store';
 import { useAccessStore } from '../store/accessStore';
 import { useState } from 'react';
@@ -13,7 +13,6 @@ const navItems = [
   { to: '/regulations', label: 'Regulations', icon: ScrollText },
   { to: '/compare', label: 'Compare', icon: Scale },
   { to: '/calculator', label: 'Calculator', icon: BarChart3 },
-  { to: '/dashboard', label: 'Portfolio', icon: LayoutDashboard },
 ];
 
 export default function Navbar() {

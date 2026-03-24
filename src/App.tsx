@@ -7,7 +7,6 @@ import CityPage from './pages/CityPage';
 import RegulationsPage from './pages/RegulationsPage';
 import ComparePage from './pages/ComparePage';
 import CalculatorPage from './pages/CalculatorPage';
-import DashboardPage from './pages/DashboardPage';
 import SearchPage from './pages/SearchPage';
 import InsightsPage from './pages/InsightsPage';
 import AboutPage from './pages/AboutPage';
@@ -75,7 +74,6 @@ function App() {
           <Route path="/regulations/:countryId" element={<ProtectedRoute><RegulationsPage /></ProtectedRoute>} />
           <Route path="/compare" element={<ProtectedRoute><ComparePage /></ProtectedRoute>} />
           <Route path="/calculator" element={<ProtectedRoute><CalculatorPage /></ProtectedRoute>} />
-          <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
           <Route path="/insights" element={<ProtectedRoute><InsightsPage /></ProtectedRoute>} />
           <Route path="/about" element={<ProtectedRoute><AboutPage /></ProtectedRoute>} />
         </Routes>
