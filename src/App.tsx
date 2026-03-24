@@ -26,6 +26,15 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 // Detects access codes in URL (from Lightly.ro or Stripe redirect)
 function AccessCodeDetector() {
   const navigate = useNavigate();
@@ -61,6 +70,7 @@ function App() {
     <HashRouter>
       <div className={`min-h-screen flex flex-col bg-gray-50 ${darkMode ? 'dark' : ''}`}>
         <Navbar />
+        <ScrollToTop />
         <AccessCodeDetector />
         <Routes>
           {/* Landing page is always public */}

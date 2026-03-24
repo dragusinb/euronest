@@ -557,6 +557,48 @@ function HowItWorks() {
   );
 }
 
+function LightlyBanner() {
+  const referralURL = 'https://www.lightly.ro/?ref=euronest';
+
+  return (
+    <section className="bg-white border-t border-gray-100">
+      <div className="max-w-5xl mx-auto px-6 py-16">
+        <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200 p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
+          <div className="flex-shrink-0">
+            <div className="w-20 h-20 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-200">
+              <span className="text-white font-bold text-2xl">L</span>
+            </div>
+          </div>
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Already own property in Romania?
+            </h3>
+            <p className="text-gray-600 mb-1">
+              <strong>Lightly.ro</strong> handles everything: tenant screening, rent collection, utility payments,
+              maintenance, and monthly reports. Premium property management starting at just <strong>1.99 EUR/month</strong>.
+            </p>
+            <p className="text-sm text-gray-500">
+              Over 50 landlords trust Lightly to manage their properties. 98% satisfaction rate.
+            </p>
+          </div>
+          <div className="flex-shrink-0">
+            <a
+              href={referralURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-xl font-semibold no-underline hover:bg-emerald-700 transition-colors shadow-lg shadow-emerald-200"
+            >
+              Visit Lightly.ro
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+            <p className="text-xs text-emerald-600 mt-2 text-center font-medium">EuroNest subscribers get a free trial</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CTASection() {
   return (
     <section className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
@@ -629,7 +671,8 @@ function Footer() {
             <span role="img" aria-label="love">
               &#10084;&#65039;
             </span>{' '}
-            for European investors
+            for European investors &middot; Property management by{' '}
+            <a href="https://www.lightly.ro/?ref=euronest" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 no-underline">Lightly.ro</a>
           </p>
           <p className="text-gray-500 text-xs max-w-2xl mx-auto">
             Disclaimer: All data on this platform is for informational purposes only and does not
@@ -657,6 +700,7 @@ export default function LandingPage() {
       <PricingSection />
       <HowItWorks />
       <ThankTheDevs />
+      <LightlyBanner />
       <CTASection />
       <Footer />
     </div>
